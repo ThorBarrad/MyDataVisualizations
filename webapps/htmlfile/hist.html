@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <head>
+        <title>19数科蒋卓良数据可视化作业1</title>
+    </head>
+    <body>
+        <h1>
+            19数科蒋卓良/数据可视化作业01/2019302120041
+        </h1>
+        <svg id="mysvg">
+            <!-- <rect x=20 y=20 width=200 height=300 stype="fill:yellow"></rect> -->
+        </svg>
+    </body>
+    <script>
+        var screenwidth=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;
+        var screenheight=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight;
+        screenwidth=screenwidth-50;
+        screenheight=screenheight-130;
+
+        var histgraph=document.getElementById("mysvg");
+        histgraph.setAttribute("width",screenwidth);
+        histgraph.setAttribute("height",screenheight+20);
+
+        
+        
+
+        var data=new Array(15056,27148,11708,32142,32985,19363,13123,11180,14733,11417,
+                            35730,9459,12204,24645,6742,18463,12843,23663,16143,14011,
+                            17211,9527,25558,16164,65473,57431,7972,13361,12695,12809,
+                            11567);
+        var dataname=new Array("河南省","山东省","四川省","广东省","江苏省","河北省","湖南省","安徽省","湖北省","广西省",
+                                "浙江省","云南省","江西省","辽宁省","贵州省","黑龙江","陕西省","福建省","山西省","重庆市",
+                                "吉林省","甘肃省","内蒙古","新疆区","上海市","北京市","天津市","海南省","宁夏区","青海省",
+                                "西藏区");
+
+
+        var myrect=new Array(data.length);
+        var mydatatext=new Array(data.length);
+        var mynametext=new Array(data.length);
+
+        for(var i=0;i<data.length;i++){
+            data[i]=Math.round(Math.random()*70000);
+        }
+
+
+        for(var i=0;i<data.length;i++){
+
+            myrect[i]=document.createElement("rect");
+            histgraph.appendChild(myrect[i]);
+            var dataheight=screenheight*data[i]/70000;
+            myrect[i].outerHTML=
+                "<rect x="+Math.round(screenwidth/myrect.length)*i+
+                " y="+(screenheight-dataheight)+
+                " width="+Math.round(screenwidth/myrect.length-20)+
+                " height="+dataheight+
+                " style='fill:rgb(0,0,"+Math.round(255*data[i]/70000)+")'></rect>";
+
+            mydatatext[i]=document.createElement("text");
+            histgraph.appendChild(mydatatext[i]);
+            mydatatext[i].outerHTML=
+                "<text x="+Math.round(screenwidth/mydatatext.length)*i+
+                " y="+(screenheight-dataheight)+
+                " style='font-family:微软雅黑;fill:rgb(0,0,255);font-size:10'> "+data[i]+" </text>";
+
+            mynametext[i]=document.createElement("text");
+            histgraph.appendChild(mynametext[i]);
+            mynametext[i].outerHTML=
+                "<text x="+Math.round(screenwidth/mynametext.length)*i+
+                " y="+(screenheight+15)+
+                " style='font-family:微软雅黑;fill:rgb(0,0,255);font-size:10'> "+dataname[i]+" </text>";
+        }
+    </script>
+</html>

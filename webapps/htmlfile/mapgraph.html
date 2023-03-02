@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <head>
+        <title>地图可视化</title>
+    </head>
+    <body>
+        <h1 style="text-align: right;">
+            <a href="https://www.aminer.cn/ai2000/play">国内各地区双一流高校数量</a>
+        </h1>
+    </body>
+    <script src="d3.v3.min.js"></script>
+    <script src="jquery.js"></script>
+    <script>
+        var screenwidth=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;
+        var screenheight=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight;
+        screenwidth=screenwidth-50;
+        screenheight=screenheight+500;
+                    
+        var svg=d3.select("body")
+                .append("svg")
+                .attr("width",screenwidth)
+                .attr("height",screenheight)
+
+        var collegedata={
+            "江苏省":{"x":940,"y":590,"name":"江苏省","count":16},
+            "广东省":{"x":825,"y":780,"name":"广东省","count":8},
+            "河南省":{"x":810,"y":575,"name":"河南省","count":2},
+            "山东省":{"x":895,"y":525,"name":"山东省","count":3},
+            "四川省":{"x":620,"y":650,"name":"四川省","count":8},
+            "湖北省":{"x":800,"y":635,"name":"湖北省","count":7},
+            "湖南省":{"x":785,"y":700,"name":"湖南省","count":4},
+            "河北省":{"x":848,"y":480,"name":"河北省","count":1},
+            "安徽省":{"x":880,"y":625,"name":"安徽省","count":3},
+            "辽宁省":{"x":975,"y":410,"name":"辽宁省","count":4},
+            "浙江省":{"x":933,"y":675,"name":"浙江省","count":3},
+            "江西省":{"x":850,"y":705,"name":"江西省","count":0},
+            "陕西省":{"x":730,"y":570,"name":"陕西省","count":7},
+            "北京市":{"x":865,"y":440,"name":"北京市","count":34},
+            "福建省":{"x":893,"y":735,"name":"福建省","count":2},
+            "广西壮族自治区":{"x":720,"y":775,"name":"广西壮族自治区","count":0},
+            "山西省":{"x":793,"y":500,"name":"山西省","count":2},
+            "云南省":{"x":610,"y":760,"name":"云南省","count":0},
+            "黑龙江省":{"x":1060,"y":280,"name":"黑龙江省","count":4},
+            "贵州省":{"x":700,"y":720,"name":"贵州省","count":0},
+            "重庆市":{"x":710,"y":660,"name":"重庆市","count":2},
+            "吉林省":{"x":1040,"y":355,"name":"吉林省","count":3},
+            "上海市":{"x":970,"y":635,"name":"上海市","count":14},
+            "天津市":{"x":885,"y":462,"name":"天津市","count":5},
+            "新疆维吾尔自治区":{"x":290,"y":420,"name":"新疆维吾尔自治区","count":2},
+            "内蒙古自治区":{"x":850,"y":350,"name":"内蒙古自治区","count":1},
+            "甘肃省":{"x":510,"y":435,"name":"甘肃省","count":0},
+            "海南省":{"x":750,"y":865,"name":"海南省","count":0},
+            "宁夏回族自治区":{"x":660,"y":500,"name":"宁夏回族自治区","count":1},
+            "青海省":{"x":510,"y":535,"name":"青海省","count":1},
+            "西藏自治区":{"x":360,"y":630,"name":"西藏自治区","count":1}
+        }
+
+        const color = d3.scale.category20();
+
+        var projection=d3.geo.mercator()
+                            .center([116.3956, 39.93])
+                            .scale(1000)
+                            .translate([screenwidth *0.6, screenheight *0.35]);
+
+        var path = d3.geo.path()
+                        .projection(projection)
+
+
+        d3.json("worldmap2.json", function (error, root) {
+            
+
+            console.log(root);
+
+            svg.selectAll("path")
+                .data(root.features)
+                .enter()
+                .append("path")
+
+                .attr("stroke",function(d,i){
+                    return color(i%20)
+                })
+                .attr("stroke-width",1)
+                .attr("fill",function(d,i){
+                    // return color(i%20);
+                    return "none"
+                })
+                .attr("d",function(d,i){
+                    return path(d)
+                })//使用地理路径生成器
+            
+            var texts = svg.selectAll("text")
+                            .data(root.features)
+                            .enter()
+                            .append("text")
+                            .text(function (d,i) {
+                                if(!collegedata[d.properties.name]){
+                                    return
+                                }
+                                return d.properties.name+":"+collegedata[d.properties.name].count;
+                            })
+                            .attr('fill', 'black')
+                            .attr("font-size", "12")
+                            .attr("x",function(d,i){
+                                if(i==34){
+                                    return
+                                }
+                                if(!collegedata[d.properties.name]){
+                                    return
+                                }
+                                return collegedata[d.properties.name].x
+                            })
+                            .attr("y",function(d,i){
+                                if(i==34){
+                                    return
+                                }
+                                if(!collegedata[d.properties.name]){
+                                    return
+                                }
+                                return collegedata[d.properties.name].y
+                            })
+            
+            svg.append("text")
+                .text("台湾省")
+                .attr('fill', 'black')
+                .attr("font-size", "12")
+                .attr("x",950)
+                .attr("y",780)
+            
+            svg.append("text")
+                .text("香港/澳门")
+                .attr('fill', 'black')
+                .attr("font-size", "12")
+                .attr("x",825)
+                .attr("y",810)
+        })
+
+    </script>
+</html>

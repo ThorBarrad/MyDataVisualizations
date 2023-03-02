@@ -1,0 +1,65 @@
+<html>
+<head>
+    	<meta charset="utf-8">
+</head>
+<body>
+<script src="d3.v7.js"></script>
+<script>
+		    var width=(window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth)*0.96;
+		    var height=(window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight)*0.98;
+            var color = d3.schemeCategory10;
+            var svg = d3.select("body")			//选择<body>
+					.append("svg")			//在<body>中添加<svg>
+					.attr("width", width)	//设定<svg>的宽度属性
+					.attr("height", height);//设定<svg>的高度属性
+                    
+            var radius=width/2;        
+            var tree=d3.tree()
+                       .size([2*Math.PI, radius - 400]);
+            d3.json("d3v3tree.json").then(function(data) {
+            
+               console.log(data);
+               var hi=d3.hierarchy(data);
+               console.log(hi);
+               var root=tree(hi);
+               links=root.links();
+               console.log(links);
+               nodes=root.descendants();
+               console.log(nodes);
+            
+            var gc=svg.append("g")
+                      .attr("transform","translate(" + (width/2) + "," + (height/2) + ")");	
+            var lines=gc.selectAll("path")
+                        .data(links)
+                        .enter()
+                        .append("path")
+                        .attr("fill","none")
+                        .attr("stroke","#00f")
+                        .attr("d",d3.linkRadial()          //d3.linkHorizontal()
+                                    .angle(d => d.x)
+                                    .radius(d => d.y)
+                        );                        
+            var mynode=gc.selectAll("circle") 
+                        .data(nodes)
+                        .join("circle")
+                        .attr("cx",d=>Math.cos(d.x-Math.PI/2)*d.y)
+                        .attr("cy",d=>Math.sin(d.x-Math.PI/2)*d.y)
+                        .attr("r",d=>(d.height+2)*2)
+                        .attr("fill","none")
+                        .attr("stroke","red");
+                        
+            var nodetxt=gc.selectAll("text") 
+                        .data(nodes)
+                        .join("text")
+                        .attr("x",d=>Math.cos(d.x-Math.PI/2)*d.y)
+                        .attr("y",d=>Math.sin(d.x-Math.PI/2)*d.y)
+                        .attr("font-size","12")
+                        .attr("fill","green")
+                        .attr("transform",d=>`rotate(${d.x*180/Math.PI-90},${Math.cos(d.x-Math.PI/2)*d.y},${Math.sin(d.x-Math.PI/2)*d.y})`)
+                        .attr("text-anchor",d => !d.children?"start" : "end")                      
+                        .text(d=>d.data.name);     
+                                    
+            })
+</script>
+</body>
+</html>

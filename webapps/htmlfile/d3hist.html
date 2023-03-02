@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <head>
+        <title>19数科蒋卓良数据可视化作业4</title>
+    </head>
+    <body>
+        <h1 style="text-align: right;">
+            英雄联盟LPL春季赛英雄登场次数及胜率统计
+        </h1>
+        <h2 style="text-align: right;">
+            (截至2022年03月22日12:00)
+        </h2>
+    </body>
+    <script src="d3.min.js"></script>
+    <script>
+        
+        var screenwidth=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;
+        var screenheight=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight;
+        screenwidth=screenwidth-50;
+        screenheight=screenheight-170;
+                    
+        var svg=d3.select("body")
+                .append("svg")
+                .attr("width",screenwidth+40)
+                .attr("height",screenheight+20)
+
+        // screenwidth=screenwidth-50;
+        screenheight=screenheight-100;
+
+        var lineheight=new Array(30,60,90,120,150,180,210,240,270,300)
+        var lineheight2=new Array(0,30,60,90,120,150,180,210,240,270,300)
+
+        d3.csv("champion2.csv",function(csvdata){
+            return csvdata
+        }).then(function(data){
+            console.log(data)
+
+            // 登场次数 柱状图
+            svg.selectAll("rect")
+                .data(data)
+                .enter()
+                .append("rect")
+                .attr("x",function(d,i){
+                    return Math.round(screenwidth/data.length)*i+25
+                })
+                .attr("y",function(d,i){
+                    var dataheight=screenheight*d["appear_time"]/300
+                    return screenheight-dataheight+100
+                })
+                .attr("width",function(d,i){
+                    return Math.round(screenwidth/(2*data.length)-10)
+                })
+                .attr("height",function(d,i){
+                    return screenheight*d["appear_time"]/300
+                })
+                .attr("fill","blue")
+
+            // 胜率 柱状图
+            svg.selectAll("rect2")
+                .data(data)
+                .enter()
+                .append("rect")
+                .attr("x",function(d,i){
+                    return Math.round(screenwidth/data.length)*i+25+Math.round(screenwidth/(2*data.length)-10)
+                })
+                .attr("y",function(d,i){
+                    var dataheight=screenheight*d["win_rate"]
+                    return screenheight-dataheight+100
+                })
+                .attr("width",function(d,i){
+                    return Math.round(screenwidth/(2*data.length)-10)
+                })
+                .attr("height",function(d,i){
+                    return screenheight*d["win_rate"]
+                })
+                .attr("fill","yellow")
+
+            // 底部英雄名
+            svg.selectAll("text1")
+                .data(data)
+                .enter()
+                .append("text")
+                .attr("x",function(d,i){
+                    return Math.round(screenwidth/data.length)*i+30+Math.round(screenwidth/(2*data.length)-40)
+                })
+                .attr("y",function(d,i){
+                    return screenheight+15+100
+                })
+                .text(function(d,i){
+                    return d["champ_name"]
+                })
+                .attr("font-size",15)
+
+            // 登场次数 数值
+            svg.selectAll("text2")
+                .data(data)
+                .enter()
+                .append("text")
+                .attr("x",function(d,i){
+                    return Math.round(screenwidth/data.length)*i+20+Math.round(screenwidth/(4*data.length)-15)
+                })
+                .attr("y",function(d,i){
+                    var dataheight=screenheight*d["appear_time"]/300
+                    return screenheight-dataheight+100
+                })
+                .text(function(d,i){
+                    return d["appear_time"]
+                })
+                .attr("font-size",15)
+
+            // 胜率 数值
+            svg.selectAll("text3")
+                .data(data)
+                .enter()
+                .append("text")
+                .attr("x",function(d,i){
+                    return Math.round(screenwidth/data.length)*i+20+Math.round(screenwidth/(2*data.length)-10)+Math.round(screenwidth/(4*data.length)-15)
+                })
+                .attr("y",function(d,i){
+                    var dataheight=screenheight*d["win_rate"]
+                    return screenheight-dataheight+100
+                })
+                .text(function(d,i){
+                    return Math.trunc(d["win_rate"]*100).toString()+"%"
+                })
+                .attr("font-size",15)
+
+            svg.append("line")
+                .attr("x1",20)
+                .attr("y1", screenheight+100)  
+                .attr("x2", 20)  
+                .attr("y2", 100)  
+                .attr("stroke", "black")  
+                .attr("stroke-width", "2px")
+
+            svg.append("line")
+                .attr("x1",20)
+                .attr("y1", screenheight+100)  
+                .attr("x2", screenwidth+15)  
+                .attr("y2", screenheight+100)  
+                .attr("stroke", "black")  
+                .attr("stroke-width", "2px")
+
+            svg.append("line")
+                .attr("x1",screenwidth+15)
+                .attr("y1", screenheight+100)  
+                .attr("x2", screenwidth+15)
+                .attr("y2", 100)  
+                .attr("stroke", "black")  
+                .attr("stroke-width", "2px")
+
+            svg.selectAll("lines")
+                .data(lineheight)
+                .enter()
+                .append("line")
+                .attr("x1",20)
+                .attr("y1", function(d,i){
+                    return screenheight-screenheight*d/300+100
+                })  
+                .attr("x2", screenwidth+15)  
+                .attr("y2", function(d,i){
+                    return screenheight-screenheight*d/300+100
+                })  
+                .attr("stroke", "black")  
+                .attr("stroke-width", "1px")
+                .attr("stroke-dasharray","5,5")
+
+            svg.selectAll("text3")
+                .data(lineheight2)
+                .enter()
+                .append("text")
+                .attr("x",0)
+                .attr("y",function(d,i){
+                    return screenheight-screenheight*d/300+10+100
+                })
+                .text(function(d,i){
+                    return d
+                })
+                .attr("font-size",10)
+
+            svg.selectAll("text4")
+                .data(lineheight2)
+                .enter()
+                .append("text")
+                .attr("x",screenwidth+15)
+                .attr("y",function(d,i){
+                    return screenheight-screenheight*d/300+10+100
+                })
+                .text(function(d,i){
+                    return d/3+"%"
+                })
+                .attr("font-size",10)
+
+            svg.append("text")
+                .attr("x",0)
+                .attr("y",90)
+                .text("登场次数")
+                .attr("font-size",15)
+
+            svg.append("text")
+                .attr("x",screenwidth)
+                .attr("y",90)
+                .text("胜率")
+                .attr("font-size",15)
+
+            svg.append("rect")
+                .attr("x",screenwidth-100)
+                .attr("y",40)
+                .attr("width",50)
+                .attr("height",20)
+                .attr("fill","blue")
+
+            svg.append("rect")
+                .attr("x",screenwidth-100)
+                .attr("y",0)
+                .attr("width",50)
+                .attr("height",20)
+                .attr("fill","yellow")
+
+            svg.append("text")
+                .attr("x",screenwidth-25)
+                .attr("y",15)
+                .text("胜率")
+                .attr("font-size",15)
+
+            svg.append("text")
+                .attr("x",screenwidth-25)
+                .attr("y",55)
+                .text("登场次数")
+                .attr("font-size",15)
+        })
+        
+    </script>
+</html>

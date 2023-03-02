@@ -1,0 +1,66 @@
+<html>
+<head>
+    	<meta charset="utf-8">
+</head>
+<body>
+<script src="d3.v7.js"></script>
+<script>
+		    var width=(window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth)*0.96;
+		    var height=(window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight)*0.96;
+            var color = d3.schemeCategory10;
+            var svg = d3.select("body")			//选择<body>
+					.append("svg")			//在<body>中添加<svg>
+					.attr("width", width)	//设定<svg>的宽度属性
+					.attr("height", height);//设定<svg>的高度属性
+                    
+                    
+            radius = width /2;
+            var tree=d3.tree()
+                       .size([width,height*0.7]);
+            d3.json("d3v3tree.json").then(function(data) {
+            
+               console.log(data);
+               var hi=d3.hierarchy(data);
+               console.log(hi);
+               var root=tree(hi);
+               links=root.links();
+               console.log(links);
+               nodes=root.descendants();
+               console.log(nodes);
+            
+            var gc=svg.append("g");
+               //       .attr("transform","translate(" + (width/20) + "," + (height/8) + ")");	
+            var lines=gc.selectAll("path")
+                        .data(links)
+                        .enter()
+                        .append("path")
+                        .attr("fill","none")
+                        .attr("stroke","#00f")
+                        .attr("d",d3.linkVertical()          //d3.linkHorizontal()
+                                    .x(d=>d.x)
+                                    .y(d=>d.y)
+                        );
+            var mynode=gc.selectAll("circle") 
+                        .data(nodes)
+                        .join("circle")
+                        .attr("cx",d=>d.x)
+                        .attr("cy",d=>d.y)
+                        .attr("r",d=>(d.height+2)*2)
+                        .attr("fill","none")
+                        .attr("stroke","red");
+                        
+            var nodetxt=gc.selectAll("text") 
+                        .data(nodes)
+                        .join("text")
+                        .attr("x",d=>d.x)
+                        .attr("y",d=>d.y)
+                    //    .attr("text-anchor","middle")
+                        .attr("font-size","12")
+                        .attr("fill","green")
+                        .attr("transform",d=>`rotate(90,${d.x},${d.y})`)                        
+                        .text(d=>d.data.name);            
+               
+            })
+</script>
+</body>
+</html>

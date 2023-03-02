@@ -1,0 +1,204 @@
+22-Apr-2022 13:14:17.574 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.服务器版本: Apache Tomcat/10.0.16
+22-Apr-2022 13:14:17.593 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器构建:        Jan 15 2022 13:19:56 UTC
+22-Apr-2022 13:14:17.596 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器版本号:      10.0.16.0
+22-Apr-2022 13:14:17.618 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 操作系统名称:      Windows 10
+22-Apr-2022 13:14:17.631 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS.版本:           10.0
+22-Apr-2022 13:14:17.632 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 架构:              amd64
+22-Apr-2022 13:14:17.633 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java 环境变量:     C:\Program Files\Java\jdk-14.0.2
+22-Apr-2022 13:14:17.634 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java虚拟机版本:    14.0.2+12-46
+22-Apr-2022 13:14:17.646 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM.供应商:        Oracle Corporation
+22-Apr-2022 13:14:17.666 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16
+22-Apr-2022 13:14:17.667 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16
+22-Apr-2022 13:14:17.669 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.lang=ALL-UNNAMED
+22-Apr-2022 13:14:17.670 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.io=ALL-UNNAMED
+22-Apr-2022 13:14:17.670 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.util=ALL-UNNAMED
+22-Apr-2022 13:14:17.672 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+22-Apr-2022 13:14:17.692 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+22-Apr-2022 13:14:17.706 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.config.file=C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\conf\logging.properties
+22-Apr-2022 13:14:17.715 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-Apr-2022 13:14:17.723 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djdk.tls.ephemeralDHKeySize=2048
+22-Apr-2022 13:14:17.728 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+22-Apr-2022 13:14:17.735 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dignore.endorsed.dirs=
+22-Apr-2022 13:14:17.738 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.base=C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16
+22-Apr-2022 13:14:17.764 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.home=C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16
+22-Apr-2022 13:14:17.780 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.io.tmpdir=C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\temp
+22-Apr-2022 13:14:17.839 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 使用APR版本[1.7.0]加载了基于APR的Apache Tomcat本机库[1.2.31]。
+22-Apr-2022 13:14:17.852 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR功能：IPv6[true]、sendfile[true]、accept filters[false]、random[true]、UDS [true]。
+22-Apr-2022 13:14:17.876 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL成功初始化 [OpenSSL 1.1.1l  24 Aug 2021]
+22-Apr-2022 13:14:18.835 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["http-nio-8080"]
+22-Apr-2022 13:14:18.922 信息 [main] org.apache.catalina.startup.Catalina.load 服务器在[1750]毫秒内初始化
+22-Apr-2022 13:14:19.057 信息 [main] org.apache.catalina.core.StandardService.startInternal 正在启动服务[Catalina]
+22-Apr-2022 13:14:19.085 信息 [main] org.apache.catalina.core.StandardEngine.startInternal 正在启动 Servlet 引擎：[Apache Tomcat/10.0.16]
+22-Apr-2022 13:14:19.120 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\docs]
+22-Apr-2022 13:14:20.268 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 13:14:20.475 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\docs]的部署已在[1,349]毫秒内完成
+22-Apr-2022 13:14:20.486 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\examples]
+22-Apr-2022 13:14:23.172 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 13:14:23.627 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\examples]的部署已在[3,141]毫秒内完成
+22-Apr-2022 13:14:23.648 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\host-manager]
+22-Apr-2022 13:14:24.261 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 13:14:24.324 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\host-manager]的部署已在[676]毫秒内完成
+22-Apr-2022 13:14:24.329 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\htmlfile]
+22-Apr-2022 13:14:24.736 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 13:14:24.773 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\htmlfile]的部署已在[444]毫秒内完成
+22-Apr-2022 13:14:24.775 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\manager]
+22-Apr-2022 13:14:25.488 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 13:14:25.569 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\manager]的部署已在[794]毫秒内完成
+22-Apr-2022 13:14:25.591 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\ROOT]
+22-Apr-2022 13:14:26.121 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 13:14:26.155 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\ROOT]的部署已在[563]毫秒内完成
+22-Apr-2022 13:14:26.165 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["http-nio-8080"]
+22-Apr-2022 13:14:26.254 信息 [main] org.apache.catalina.startup.Catalina.start [7299]毫秒后服务器启动
+22-Apr-2022 16:44:29.539 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.服务器版本: Apache Tomcat/10.0.16
+22-Apr-2022 16:44:29.552 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器构建:        Jan 15 2022 13:19:56 UTC
+22-Apr-2022 16:44:29.552 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器版本号:      10.0.16.0
+22-Apr-2022 16:44:29.555 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 操作系统名称:      Windows 10
+22-Apr-2022 16:44:29.555 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS.版本:           10.0
+22-Apr-2022 16:44:29.555 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 架构:              amd64
+22-Apr-2022 16:44:29.555 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java 环境变量:     C:\Program Files\Java\jdk-14.0.2
+22-Apr-2022 16:44:29.556 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java虚拟机版本:    14.0.2+12-46
+22-Apr-2022 16:44:29.556 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM.供应商:        Oracle Corporation
+22-Apr-2022 16:44:29.556 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16
+22-Apr-2022 16:44:29.556 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16
+22-Apr-2022 16:44:29.574 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.lang=ALL-UNNAMED
+22-Apr-2022 16:44:29.595 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.io=ALL-UNNAMED
+22-Apr-2022 16:44:29.596 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.util=ALL-UNNAMED
+22-Apr-2022 16:44:29.596 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+22-Apr-2022 16:44:29.597 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+22-Apr-2022 16:44:29.598 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.config.file=C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\conf\logging.properties
+22-Apr-2022 16:44:29.599 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-Apr-2022 16:44:29.599 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djdk.tls.ephemeralDHKeySize=2048
+22-Apr-2022 16:44:29.600 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+22-Apr-2022 16:44:29.600 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dignore.endorsed.dirs=
+22-Apr-2022 16:44:29.600 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.base=C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16
+22-Apr-2022 16:44:29.601 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.home=C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16
+22-Apr-2022 16:44:29.602 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.io.tmpdir=C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\temp
+22-Apr-2022 16:44:29.617 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 使用APR版本[1.7.0]加载了基于APR的Apache Tomcat本机库[1.2.31]。
+22-Apr-2022 16:44:29.632 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR功能：IPv6[true]、sendfile[true]、accept filters[false]、random[true]、UDS [true]。
+22-Apr-2022 16:44:29.652 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL成功初始化 [OpenSSL 1.1.1l  24 Aug 2021]
+22-Apr-2022 16:44:30.259 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["http-nio-8080"]
+22-Apr-2022 16:44:30.318 信息 [main] org.apache.catalina.startup.Catalina.load 服务器在[1193]毫秒内初始化
+22-Apr-2022 16:44:30.425 信息 [main] org.apache.catalina.core.StandardService.startInternal 正在启动服务[Catalina]
+22-Apr-2022 16:44:30.425 信息 [main] org.apache.catalina.core.StandardEngine.startInternal 正在启动 Servlet 引擎：[Apache Tomcat/10.0.16]
+22-Apr-2022 16:44:30.448 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\docs]
+22-Apr-2022 16:44:31.494 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 16:44:31.758 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\docs]的部署已在[1,305]毫秒内完成
+22-Apr-2022 16:44:31.770 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\examples]
+22-Apr-2022 16:44:33.698 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 16:44:34.035 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\examples]的部署已在[2,265]毫秒内完成
+22-Apr-2022 16:44:34.045 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\host-manager]
+22-Apr-2022 16:44:34.448 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 16:44:34.475 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\host-manager]的部署已在[429]毫秒内完成
+22-Apr-2022 16:44:34.477 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\htmlfile]
+22-Apr-2022 16:44:34.787 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 16:44:34.811 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\htmlfile]的部署已在[334]毫秒内完成
+22-Apr-2022 16:44:34.821 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\manager]
+22-Apr-2022 16:44:35.230 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 16:44:35.250 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\manager]的部署已在[428]毫秒内完成
+22-Apr-2022 16:44:35.251 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\ROOT]
+22-Apr-2022 16:44:35.601 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 16:44:35.624 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\ROOT]的部署已在[373]毫秒内完成
+22-Apr-2022 16:44:35.632 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["http-nio-8080"]
+22-Apr-2022 16:44:35.695 信息 [main] org.apache.catalina.startup.Catalina.start [5375]毫秒后服务器启动
+22-Apr-2022 20:14:47.874 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.服务器版本: Apache Tomcat/10.0.16
+22-Apr-2022 20:14:47.900 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器构建:        Jan 15 2022 13:19:56 UTC
+22-Apr-2022 20:14:47.900 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器版本号:      10.0.16.0
+22-Apr-2022 20:14:47.902 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 操作系统名称:      Windows 10
+22-Apr-2022 20:14:47.903 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS.版本:           10.0
+22-Apr-2022 20:14:47.903 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 架构:              amd64
+22-Apr-2022 20:14:47.903 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java 环境变量:     C:\Program Files\Java\jdk-14.0.2
+22-Apr-2022 20:14:47.903 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java虚拟机版本:    14.0.2+12-46
+22-Apr-2022 20:14:47.903 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM.供应商:        Oracle Corporation
+22-Apr-2022 20:14:47.904 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16
+22-Apr-2022 20:14:47.904 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16
+22-Apr-2022 20:14:47.904 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.lang=ALL-UNNAMED
+22-Apr-2022 20:14:47.905 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.io=ALL-UNNAMED
+22-Apr-2022 20:14:47.905 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.util=ALL-UNNAMED
+22-Apr-2022 20:14:47.905 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+22-Apr-2022 20:14:47.906 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+22-Apr-2022 20:14:47.907 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.config.file=C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\conf\logging.properties
+22-Apr-2022 20:14:47.909 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-Apr-2022 20:14:47.909 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djdk.tls.ephemeralDHKeySize=2048
+22-Apr-2022 20:14:47.911 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+22-Apr-2022 20:14:47.942 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dignore.endorsed.dirs=
+22-Apr-2022 20:14:47.943 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.base=C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16
+22-Apr-2022 20:14:47.944 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.home=C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16
+22-Apr-2022 20:14:47.953 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.io.tmpdir=C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\temp
+22-Apr-2022 20:14:47.979 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 使用APR版本[1.7.0]加载了基于APR的Apache Tomcat本机库[1.2.31]。
+22-Apr-2022 20:14:47.980 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR功能：IPv6[true]、sendfile[true]、accept filters[false]、random[true]、UDS [true]。
+22-Apr-2022 20:14:47.992 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL成功初始化 [OpenSSL 1.1.1l  24 Aug 2021]
+22-Apr-2022 20:14:48.669 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["http-nio-8080"]
+22-Apr-2022 20:14:48.714 信息 [main] org.apache.catalina.startup.Catalina.load 服务器在[1190]毫秒内初始化
+22-Apr-2022 20:14:48.787 信息 [main] org.apache.catalina.core.StandardService.startInternal 正在启动服务[Catalina]
+22-Apr-2022 20:14:48.787 信息 [main] org.apache.catalina.core.StandardEngine.startInternal 正在启动 Servlet 引擎：[Apache Tomcat/10.0.16]
+22-Apr-2022 20:14:48.803 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\docs]
+22-Apr-2022 20:14:49.743 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 20:14:49.876 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\docs]的部署已在[1,070]毫秒内完成
+22-Apr-2022 20:14:49.889 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\examples]
+22-Apr-2022 20:14:51.420 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 20:14:51.652 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\examples]的部署已在[1,763]毫秒内完成
+22-Apr-2022 20:14:51.664 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\host-manager]
+22-Apr-2022 20:14:52.043 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 20:14:52.072 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\host-manager]的部署已在[408]毫秒内完成
+22-Apr-2022 20:14:52.073 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\htmlfile]
+22-Apr-2022 20:14:52.419 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 20:14:52.454 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\htmlfile]的部署已在[379]毫秒内完成
+22-Apr-2022 20:14:52.457 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\manager]
+22-Apr-2022 20:14:52.856 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 20:14:52.875 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\manager]的部署已在[418]毫秒内完成
+22-Apr-2022 20:14:52.876 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\ROOT]
+22-Apr-2022 20:14:53.247 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 20:14:53.274 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\ROOT]的部署已在[398]毫秒内完成
+22-Apr-2022 20:14:53.282 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["http-nio-8080"]
+22-Apr-2022 20:14:53.366 信息 [main] org.apache.catalina.startup.Catalina.start [4642]毫秒后服务器启动
+22-Apr-2022 23:01:15.023 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.服务器版本: Apache Tomcat/10.0.16
+22-Apr-2022 23:01:15.040 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器构建:        Jan 15 2022 13:19:56 UTC
+22-Apr-2022 23:01:15.040 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器版本号:      10.0.16.0
+22-Apr-2022 23:01:15.053 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 操作系统名称:      Windows 10
+22-Apr-2022 23:01:15.062 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS.版本:           10.0
+22-Apr-2022 23:01:15.062 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 架构:              amd64
+22-Apr-2022 23:01:15.062 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java 环境变量:     C:\Program Files\Java\jdk-14.0.2
+22-Apr-2022 23:01:15.063 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java虚拟机版本:    14.0.2+12-46
+22-Apr-2022 23:01:15.063 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM.供应商:        Oracle Corporation
+22-Apr-2022 23:01:15.063 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16
+22-Apr-2022 23:01:15.063 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16
+22-Apr-2022 23:01:15.063 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.lang=ALL-UNNAMED
+22-Apr-2022 23:01:15.063 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.io=ALL-UNNAMED
+22-Apr-2022 23:01:15.063 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.util=ALL-UNNAMED
+22-Apr-2022 23:01:15.063 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+22-Apr-2022 23:01:15.063 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+22-Apr-2022 23:01:15.068 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.config.file=C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\conf\logging.properties
+22-Apr-2022 23:01:15.068 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-Apr-2022 23:01:15.070 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djdk.tls.ephemeralDHKeySize=2048
+22-Apr-2022 23:01:15.070 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+22-Apr-2022 23:01:15.072 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dignore.endorsed.dirs=
+22-Apr-2022 23:01:15.072 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.base=C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16
+22-Apr-2022 23:01:15.073 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Dcatalina.home=C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16
+22-Apr-2022 23:01:15.073 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：       -Djava.io.tmpdir=C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\temp
+22-Apr-2022 23:01:15.082 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 使用APR版本[1.7.0]加载了基于APR的Apache Tomcat本机库[1.2.31]。
+22-Apr-2022 23:01:15.082 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR功能：IPv6[true]、sendfile[true]、accept filters[false]、random[true]、UDS [true]。
+22-Apr-2022 23:01:15.103 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL成功初始化 [OpenSSL 1.1.1l  24 Aug 2021]
+22-Apr-2022 23:01:16.063 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["http-nio-8080"]
+22-Apr-2022 23:01:16.138 信息 [main] org.apache.catalina.startup.Catalina.load 服务器在[1550]毫秒内初始化
+22-Apr-2022 23:01:16.217 信息 [main] org.apache.catalina.core.StandardService.startInternal 正在启动服务[Catalina]
+22-Apr-2022 23:01:16.219 信息 [main] org.apache.catalina.core.StandardEngine.startInternal 正在启动 Servlet 引擎：[Apache Tomcat/10.0.16]
+22-Apr-2022 23:01:16.237 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\docs]
+22-Apr-2022 23:01:17.118 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 23:01:17.374 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\docs]的部署已在[1,132]毫秒内完成
+22-Apr-2022 23:01:17.391 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\examples]
+22-Apr-2022 23:01:18.558 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 23:01:18.852 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\examples]的部署已在[1,461]毫秒内完成
+22-Apr-2022 23:01:18.990 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\host-manager]
+22-Apr-2022 23:01:19.472 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 23:01:19.527 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\host-manager]的部署已在[537]毫秒内完成
+22-Apr-2022 23:01:19.546 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\htmlfile]
+22-Apr-2022 23:01:19.947 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 23:01:19.983 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\htmlfile]的部署已在[437]毫秒内完成
+22-Apr-2022 23:01:19.985 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\manager]
+22-Apr-2022 23:01:20.387 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 23:01:20.552 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\manager]的部署已在[567]毫秒内完成
+22-Apr-2022 23:01:20.617 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\ROOT]
+22-Apr-2022 23:01:20.961 信息 [main] org.apache.jasper.servlet.TldScanner.scanJars 至少有一个JAR被扫描用于TLD但尚未包含TLD。 为此记录器启用调试日志记录，以获取已扫描但未在其中找到TLD的完整JAR列表。 在扫描期间跳过不需要的JAR可以缩短启动时间和JSP编译时间。
+22-Apr-2022 23:01:21.074 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\webapps\ROOT]的部署已在[457]毫秒内完成
+22-Apr-2022 23:01:21.136 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["http-nio-8080"]
+22-Apr-2022 23:01:21.390 信息 [main] org.apache.catalina.startup.Catalina.start [5241]毫秒后服务器启动

@@ -1,0 +1,774 @@
+13-Jun-2022 12:22:49.247 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+13-Jun-2022 12:22:49.248 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+13-Jun-2022 12:22:49.260 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@6a078481')
+13-Jun-2022 17:26:39.594 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+13-Jun-2022 17:26:39.594 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+13-Jun-2022 17:26:39.605 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@5eefa415')
+13-Jun-2022 17:29:45.915 严重 [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke 在路径为/htmlfile的上下文中，Servlet[jsp]的Servlet.service（）引发了具有根本原因的异常在 [25] 行处理 [/sqltest/index.jsp] 时发生异常
+
+22:         Statement statement=connection.createStatement();
+23: 
+24:         String sql="Select * from "+tableName+" order by english";
+25:         ResultSet rs=statement.executeQuery(sql);
+26:         String[] words=new String[5668];
+27:         String[] yinbiao=new String[5668];
+28:         String[] chinese=new String[5668];
+
+
+Stacktrace:
+	com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'english.map_enword' doesn't exist
+		at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+		at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+		at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+		at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+		at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+		at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+		at com.mysql.jdbc.Util.getInstance(Util.java:386)
+		at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1053)
+		at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4120)
+		at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4052)
+		at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2503)
+		at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2664)
+		at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2788)
+		at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2738)
+		at com.mysql.jdbc.StatementImpl.executeQuery(StatementImpl.java:1617)
+		at org.apache.jsp.sqltest.index_jsp._jspService(index_jsp.java:145)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:777)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:466)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:777)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:355)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:866)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1708)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:832)
+13-Jun-2022 17:29:54.343 严重 [http-nio-8080-exec-5] org.apache.catalina.core.StandardWrapperValve.invoke 在路径为/htmlfile的上下文中，Servlet[jsp]的Servlet.service（）引发了具有根本原因的异常无法为JSP编译类: 
+
+在生成的java文件中的第：[14]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.MongoClient resolves to a package
+
+在生成的java文件中的第：[15]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.client.MongoDatabase resolves to a package
+
+在生成的java文件中的第：[16]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.client.MongoCollection resolves to a package
+
+在生成的java文件中的第：[17]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.client.FindIterable resolves to a package
+
+在生成的java文件中的第：[18]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.client.MongoCursor resolves to a package
+
+在生成的java文件中的第：[19]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.DBObject resolves to a package
+
+在生成的java文件中的第：[20]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.DB resolves to a package
+
+在生成的java文件中的第：[21]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.BasicDBObject resolves to a package
+
+在生成的java文件中的第：[22]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.BasicDBObjectBuilder resolves to a package
+
+在生成的java文件中的第：[23]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.BasicDBList resolves to a package
+
+在生成的java文件中的第：[24]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.QueryBuilder resolves to a package
+
+在生成的java文件中的第：[25]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. org.bson.Document resolves to a package
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [94] 行发生了一个错误
+MongoClient cannot be resolved to a type
+91: 	
+92: 	<%
+93: 		
+94: 		MongoClient mongoClient = new MongoClient("localhost",27017);
+95: 		MongoDatabase mongoDatabase = mongoClient.getDatabase("local");
+96: 		System.out.println("database connected !!!!");
+97: 		MongoCollection collection = mongoDatabase.getCollection("position2");
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [94] 行发生了一个错误
+MongoClient cannot be resolved to a type
+91: 	
+92: 	<%
+93: 		
+94: 		MongoClient mongoClient = new MongoClient("localhost",27017);
+95: 		MongoDatabase mongoDatabase = mongoClient.getDatabase("local");
+96: 		System.out.println("database connected !!!!");
+97: 		MongoCollection collection = mongoDatabase.getCollection("position2");
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [95] 行发生了一个错误
+MongoDatabase cannot be resolved to a type
+92: 	<%
+93: 		
+94: 		MongoClient mongoClient = new MongoClient("localhost",27017);
+95: 		MongoDatabase mongoDatabase = mongoClient.getDatabase("local");
+96: 		System.out.println("database connected !!!!");
+97: 		MongoCollection collection = mongoDatabase.getCollection("position2");
+98: 		MongoCollection collection2 = mongoDatabase.getCollection("top_words");
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [97] 行发生了一个错误
+MongoCollection cannot be resolved to a type
+94: 		MongoClient mongoClient = new MongoClient("localhost",27017);
+95: 		MongoDatabase mongoDatabase = mongoClient.getDatabase("local");
+96: 		System.out.println("database connected !!!!");
+97: 		MongoCollection collection = mongoDatabase.getCollection("position2");
+98: 		MongoCollection collection2 = mongoDatabase.getCollection("top_words");
+99: 		int[] x = new int[1422];
+100: 		int[] y = new int[1422];
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [98] 行发生了一个错误
+MongoCollection cannot be resolved to a type
+95: 		MongoDatabase mongoDatabase = mongoClient.getDatabase("local");
+96: 		System.out.println("database connected !!!!");
+97: 		MongoCollection collection = mongoDatabase.getCollection("position2");
+98: 		MongoCollection collection2 = mongoDatabase.getCollection("top_words");
+99: 		int[] x = new int[1422];
+100: 		int[] y = new int[1422];
+101: 		int[] size = new int[1422];
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [102] 行发生了一个错误
+FindIterable cannot be resolved to a type
+99: 		int[] x = new int[1422];
+100: 		int[] y = new int[1422];
+101: 		int[] size = new int[1422];
+102: 		FindIterable<Document> findIterable = collection.find();
+103: 		MongoCursor<Document> mongoCursor = findIterable.iterator(); 
+104: 		int i = 0;
+105: 		while(mongoCursor.hasNext()){ 
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [102] 行发生了一个错误
+Document cannot be resolved to a type
+99: 		int[] x = new int[1422];
+100: 		int[] y = new int[1422];
+101: 		int[] size = new int[1422];
+102: 		FindIterable<Document> findIterable = collection.find();
+103: 		MongoCursor<Document> mongoCursor = findIterable.iterator(); 
+104: 		int i = 0;
+105: 		while(mongoCursor.hasNext()){ 
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [103] 行发生了一个错误
+MongoCursor cannot be resolved to a type
+100: 		int[] y = new int[1422];
+101: 		int[] size = new int[1422];
+102: 		FindIterable<Document> findIterable = collection.find();
+103: 		MongoCursor<Document> mongoCursor = findIterable.iterator(); 
+104: 		int i = 0;
+105: 		while(mongoCursor.hasNext()){ 
+106: 		Document document = mongoCursor.next();
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [103] 行发生了一个错误
+Document cannot be resolved to a type
+100: 		int[] y = new int[1422];
+101: 		int[] size = new int[1422];
+102: 		FindIterable<Document> findIterable = collection.find();
+103: 		MongoCursor<Document> mongoCursor = findIterable.iterator(); 
+104: 		int i = 0;
+105: 		while(mongoCursor.hasNext()){ 
+106: 		Document document = mongoCursor.next();
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [106] 行发生了一个错误
+Document cannot be resolved to a type
+103: 		MongoCursor<Document> mongoCursor = findIterable.iterator(); 
+104: 		int i = 0;
+105: 		while(mongoCursor.hasNext()){ 
+106: 		Document document = mongoCursor.next();
+107: 		String num1 = document.get("0").toString();
+108: 		int n1 = Integer.parseInt(num1);
+109: 		x[i] = n1;	
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [118] 行发生了一个错误
+FindIterable cannot be resolved to a type
+115: 		size[i] = n3;
+116: 		i++;
+117: 		}
+118: 		FindIterable<Document> findIterable2 = collection2.find();
+119: 		MongoCursor<Document> mongoCursor2 = findIterable2.iterator();
+120: 		String[] words = new String[1422];
+121: 		int l = 0 ;
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [118] 行发生了一个错误
+Document cannot be resolved to a type
+115: 		size[i] = n3;
+116: 		i++;
+117: 		}
+118: 		FindIterable<Document> findIterable2 = collection2.find();
+119: 		MongoCursor<Document> mongoCursor2 = findIterable2.iterator();
+120: 		String[] words = new String[1422];
+121: 		int l = 0 ;
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [119] 行发生了一个错误
+MongoCursor cannot be resolved to a type
+116: 		i++;
+117: 		}
+118: 		FindIterable<Document> findIterable2 = collection2.find();
+119: 		MongoCursor<Document> mongoCursor2 = findIterable2.iterator();
+120: 		String[] words = new String[1422];
+121: 		int l = 0 ;
+122: 		while(mongoCursor2.hasNext()){ 
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [119] 行发生了一个错误
+Document cannot be resolved to a type
+116: 		i++;
+117: 		}
+118: 		FindIterable<Document> findIterable2 = collection2.find();
+119: 		MongoCursor<Document> mongoCursor2 = findIterable2.iterator();
+120: 		String[] words = new String[1422];
+121: 		int l = 0 ;
+122: 		while(mongoCursor2.hasNext()){ 
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [123] 行发生了一个错误
+Document cannot be resolved to a type
+120: 		String[] words = new String[1422];
+121: 		int l = 0 ;
+122: 		while(mongoCursor2.hasNext()){ 
+123: 			Document document2 = mongoCursor2.next();
+124: 			String word = document2.get("0").toString();
+125: 			words[l] = word;
+126: 			l++;
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [128] 行发生了一个错误
+MongoCollection cannot be resolved to a type
+125: 			words[l] = word;
+126: 			l++;
+127: 			}
+128: 		MongoCollection collections = mongoDatabase.getCollection("position3");
+129: 		MongoCollection collection2s = mongoDatabase.getCollection("top_words");
+130: 		int[] xs = new int[1422];
+131: 		int[] ys = new int[1422];
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [129] 行发生了一个错误
+MongoCollection cannot be resolved to a type
+126: 			l++;
+127: 			}
+128: 		MongoCollection collections = mongoDatabase.getCollection("position3");
+129: 		MongoCollection collection2s = mongoDatabase.getCollection("top_words");
+130: 		int[] xs = new int[1422];
+131: 		int[] ys = new int[1422];
+132: 		int[] sizes = new int[1422];
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [133] 行发生了一个错误
+FindIterable cannot be resolved to a type
+130: 		int[] xs = new int[1422];
+131: 		int[] ys = new int[1422];
+132: 		int[] sizes = new int[1422];
+133: 		FindIterable<Document> findIterables = collections.find();
+134: 		MongoCursor<Document> mongoCursors = findIterables.iterator(); 
+135: 		int is = 0;
+136: 		while(mongoCursors.hasNext()){ 
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [133] 行发生了一个错误
+Document cannot be resolved to a type
+130: 		int[] xs = new int[1422];
+131: 		int[] ys = new int[1422];
+132: 		int[] sizes = new int[1422];
+133: 		FindIterable<Document> findIterables = collections.find();
+134: 		MongoCursor<Document> mongoCursors = findIterables.iterator(); 
+135: 		int is = 0;
+136: 		while(mongoCursors.hasNext()){ 
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [134] 行发生了一个错误
+MongoCursor cannot be resolved to a type
+131: 		int[] ys = new int[1422];
+132: 		int[] sizes = new int[1422];
+133: 		FindIterable<Document> findIterables = collections.find();
+134: 		MongoCursor<Document> mongoCursors = findIterables.iterator(); 
+135: 		int is = 0;
+136: 		while(mongoCursors.hasNext()){ 
+137: 		Document documents = mongoCursors.next();
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [134] 行发生了一个错误
+Document cannot be resolved to a type
+131: 		int[] ys = new int[1422];
+132: 		int[] sizes = new int[1422];
+133: 		FindIterable<Document> findIterables = collections.find();
+134: 		MongoCursor<Document> mongoCursors = findIterables.iterator(); 
+135: 		int is = 0;
+136: 		while(mongoCursors.hasNext()){ 
+137: 		Document documents = mongoCursors.next();
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [137] 行发生了一个错误
+Document cannot be resolved to a type
+134: 		MongoCursor<Document> mongoCursors = findIterables.iterator(); 
+135: 		int is = 0;
+136: 		while(mongoCursors.hasNext()){ 
+137: 		Document documents = mongoCursors.next();
+138: 		String num1s = documents.get("0").toString();
+139: 		int n1s = Integer.parseInt(num1s);
+140: 		xs[is] = n1s;	
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [149] 行发生了一个错误
+FindIterable cannot be resolved to a type
+146: 		sizes[is] = n3s;
+147: 		is++;
+148: 		}
+149: 		FindIterable<Document> findIterable2s = collection2s.find();
+150: 		MongoCursor<Document> mongoCursor2s = findIterable2s.iterator();
+151: 		String[] wordss = new String[1422];
+152: 		int ls = 0 ;
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [149] 行发生了一个错误
+Document cannot be resolved to a type
+146: 		sizes[is] = n3s;
+147: 		is++;
+148: 		}
+149: 		FindIterable<Document> findIterable2s = collection2s.find();
+150: 		MongoCursor<Document> mongoCursor2s = findIterable2s.iterator();
+151: 		String[] wordss = new String[1422];
+152: 		int ls = 0 ;
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [150] 行发生了一个错误
+MongoCursor cannot be resolved to a type
+147: 		is++;
+148: 		}
+149: 		FindIterable<Document> findIterable2s = collection2s.find();
+150: 		MongoCursor<Document> mongoCursor2s = findIterable2s.iterator();
+151: 		String[] wordss = new String[1422];
+152: 		int ls = 0 ;
+153: 		while(mongoCursor2s.hasNext()){ 
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [150] 行发生了一个错误
+Document cannot be resolved to a type
+147: 		is++;
+148: 		}
+149: 		FindIterable<Document> findIterable2s = collection2s.find();
+150: 		MongoCursor<Document> mongoCursor2s = findIterable2s.iterator();
+151: 		String[] wordss = new String[1422];
+152: 		int ls = 0 ;
+153: 		while(mongoCursor2s.hasNext()){ 
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [154] 行发生了一个错误
+Document cannot be resolved to a type
+151: 		String[] wordss = new String[1422];
+152: 		int ls = 0 ;
+153: 		while(mongoCursor2s.hasNext()){ 
+154: 			Document document2s = mongoCursor2s.next();
+155: 			String wordx = document2s.get("0").toString();
+156: 			wordss[ls] = wordx;
+157: 			ls++;
+
+
+Stacktrace:
+	org.apache.jasper.JasperException: 无法为JSP编译类: 
+
+在生成的java文件中的第：[14]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.MongoClient resolves to a package
+
+在生成的java文件中的第：[15]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.client.MongoDatabase resolves to a package
+
+在生成的java文件中的第：[16]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.client.MongoCollection resolves to a package
+
+在生成的java文件中的第：[17]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.client.FindIterable resolves to a package
+
+在生成的java文件中的第：[18]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.client.MongoCursor resolves to a package
+
+在生成的java文件中的第：[19]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.DBObject resolves to a package
+
+在生成的java文件中的第：[20]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.DB resolves to a package
+
+在生成的java文件中的第：[21]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.BasicDBObject resolves to a package
+
+在生成的java文件中的第：[22]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.BasicDBObjectBuilder resolves to a package
+
+在生成的java文件中的第：[23]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.BasicDBList resolves to a package
+
+在生成的java文件中的第：[24]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. com.mongodb.QueryBuilder resolves to a package
+
+在生成的java文件中的第：[25]行发生错误：[C:\Users\Doctor Jiang\Desktop\数据可视化\apache-tomcat-10.0.16\work\Catalina\localhost\htmlfile\org\apache\jsp\sqltest\tree_005fciyun_jsp.java]
+Only a type can be imported. org.bson.Document resolves to a package
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [94] 行发生了一个错误
+MongoClient cannot be resolved to a type
+91: 	
+92: 	<%
+93: 		
+94: 		MongoClient mongoClient = new MongoClient("localhost",27017);
+95: 		MongoDatabase mongoDatabase = mongoClient.getDatabase("local");
+96: 		System.out.println("database connected !!!!");
+97: 		MongoCollection collection = mongoDatabase.getCollection("position2");
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [94] 行发生了一个错误
+MongoClient cannot be resolved to a type
+91: 	
+92: 	<%
+93: 		
+94: 		MongoClient mongoClient = new MongoClient("localhost",27017);
+95: 		MongoDatabase mongoDatabase = mongoClient.getDatabase("local");
+96: 		System.out.println("database connected !!!!");
+97: 		MongoCollection collection = mongoDatabase.getCollection("position2");
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [95] 行发生了一个错误
+MongoDatabase cannot be resolved to a type
+92: 	<%
+93: 		
+94: 		MongoClient mongoClient = new MongoClient("localhost",27017);
+95: 		MongoDatabase mongoDatabase = mongoClient.getDatabase("local");
+96: 		System.out.println("database connected !!!!");
+97: 		MongoCollection collection = mongoDatabase.getCollection("position2");
+98: 		MongoCollection collection2 = mongoDatabase.getCollection("top_words");
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [97] 行发生了一个错误
+MongoCollection cannot be resolved to a type
+94: 		MongoClient mongoClient = new MongoClient("localhost",27017);
+95: 		MongoDatabase mongoDatabase = mongoClient.getDatabase("local");
+96: 		System.out.println("database connected !!!!");
+97: 		MongoCollection collection = mongoDatabase.getCollection("position2");
+98: 		MongoCollection collection2 = mongoDatabase.getCollection("top_words");
+99: 		int[] x = new int[1422];
+100: 		int[] y = new int[1422];
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [98] 行发生了一个错误
+MongoCollection cannot be resolved to a type
+95: 		MongoDatabase mongoDatabase = mongoClient.getDatabase("local");
+96: 		System.out.println("database connected !!!!");
+97: 		MongoCollection collection = mongoDatabase.getCollection("position2");
+98: 		MongoCollection collection2 = mongoDatabase.getCollection("top_words");
+99: 		int[] x = new int[1422];
+100: 		int[] y = new int[1422];
+101: 		int[] size = new int[1422];
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [102] 行发生了一个错误
+FindIterable cannot be resolved to a type
+99: 		int[] x = new int[1422];
+100: 		int[] y = new int[1422];
+101: 		int[] size = new int[1422];
+102: 		FindIterable<Document> findIterable = collection.find();
+103: 		MongoCursor<Document> mongoCursor = findIterable.iterator(); 
+104: 		int i = 0;
+105: 		while(mongoCursor.hasNext()){ 
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [102] 行发生了一个错误
+Document cannot be resolved to a type
+99: 		int[] x = new int[1422];
+100: 		int[] y = new int[1422];
+101: 		int[] size = new int[1422];
+102: 		FindIterable<Document> findIterable = collection.find();
+103: 		MongoCursor<Document> mongoCursor = findIterable.iterator(); 
+104: 		int i = 0;
+105: 		while(mongoCursor.hasNext()){ 
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [103] 行发生了一个错误
+MongoCursor cannot be resolved to a type
+100: 		int[] y = new int[1422];
+101: 		int[] size = new int[1422];
+102: 		FindIterable<Document> findIterable = collection.find();
+103: 		MongoCursor<Document> mongoCursor = findIterable.iterator(); 
+104: 		int i = 0;
+105: 		while(mongoCursor.hasNext()){ 
+106: 		Document document = mongoCursor.next();
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [103] 行发生了一个错误
+Document cannot be resolved to a type
+100: 		int[] y = new int[1422];
+101: 		int[] size = new int[1422];
+102: 		FindIterable<Document> findIterable = collection.find();
+103: 		MongoCursor<Document> mongoCursor = findIterable.iterator(); 
+104: 		int i = 0;
+105: 		while(mongoCursor.hasNext()){ 
+106: 		Document document = mongoCursor.next();
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [106] 行发生了一个错误
+Document cannot be resolved to a type
+103: 		MongoCursor<Document> mongoCursor = findIterable.iterator(); 
+104: 		int i = 0;
+105: 		while(mongoCursor.hasNext()){ 
+106: 		Document document = mongoCursor.next();
+107: 		String num1 = document.get("0").toString();
+108: 		int n1 = Integer.parseInt(num1);
+109: 		x[i] = n1;	
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [118] 行发生了一个错误
+FindIterable cannot be resolved to a type
+115: 		size[i] = n3;
+116: 		i++;
+117: 		}
+118: 		FindIterable<Document> findIterable2 = collection2.find();
+119: 		MongoCursor<Document> mongoCursor2 = findIterable2.iterator();
+120: 		String[] words = new String[1422];
+121: 		int l = 0 ;
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [118] 行发生了一个错误
+Document cannot be resolved to a type
+115: 		size[i] = n3;
+116: 		i++;
+117: 		}
+118: 		FindIterable<Document> findIterable2 = collection2.find();
+119: 		MongoCursor<Document> mongoCursor2 = findIterable2.iterator();
+120: 		String[] words = new String[1422];
+121: 		int l = 0 ;
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [119] 行发生了一个错误
+MongoCursor cannot be resolved to a type
+116: 		i++;
+117: 		}
+118: 		FindIterable<Document> findIterable2 = collection2.find();
+119: 		MongoCursor<Document> mongoCursor2 = findIterable2.iterator();
+120: 		String[] words = new String[1422];
+121: 		int l = 0 ;
+122: 		while(mongoCursor2.hasNext()){ 
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [119] 行发生了一个错误
+Document cannot be resolved to a type
+116: 		i++;
+117: 		}
+118: 		FindIterable<Document> findIterable2 = collection2.find();
+119: 		MongoCursor<Document> mongoCursor2 = findIterable2.iterator();
+120: 		String[] words = new String[1422];
+121: 		int l = 0 ;
+122: 		while(mongoCursor2.hasNext()){ 
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [123] 行发生了一个错误
+Document cannot be resolved to a type
+120: 		String[] words = new String[1422];
+121: 		int l = 0 ;
+122: 		while(mongoCursor2.hasNext()){ 
+123: 			Document document2 = mongoCursor2.next();
+124: 			String word = document2.get("0").toString();
+125: 			words[l] = word;
+126: 			l++;
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [128] 行发生了一个错误
+MongoCollection cannot be resolved to a type
+125: 			words[l] = word;
+126: 			l++;
+127: 			}
+128: 		MongoCollection collections = mongoDatabase.getCollection("position3");
+129: 		MongoCollection collection2s = mongoDatabase.getCollection("top_words");
+130: 		int[] xs = new int[1422];
+131: 		int[] ys = new int[1422];
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [129] 行发生了一个错误
+MongoCollection cannot be resolved to a type
+126: 			l++;
+127: 			}
+128: 		MongoCollection collections = mongoDatabase.getCollection("position3");
+129: 		MongoCollection collection2s = mongoDatabase.getCollection("top_words");
+130: 		int[] xs = new int[1422];
+131: 		int[] ys = new int[1422];
+132: 		int[] sizes = new int[1422];
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [133] 行发生了一个错误
+FindIterable cannot be resolved to a type
+130: 		int[] xs = new int[1422];
+131: 		int[] ys = new int[1422];
+132: 		int[] sizes = new int[1422];
+133: 		FindIterable<Document> findIterables = collections.find();
+134: 		MongoCursor<Document> mongoCursors = findIterables.iterator(); 
+135: 		int is = 0;
+136: 		while(mongoCursors.hasNext()){ 
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [133] 行发生了一个错误
+Document cannot be resolved to a type
+130: 		int[] xs = new int[1422];
+131: 		int[] ys = new int[1422];
+132: 		int[] sizes = new int[1422];
+133: 		FindIterable<Document> findIterables = collections.find();
+134: 		MongoCursor<Document> mongoCursors = findIterables.iterator(); 
+135: 		int is = 0;
+136: 		while(mongoCursors.hasNext()){ 
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [134] 行发生了一个错误
+MongoCursor cannot be resolved to a type
+131: 		int[] ys = new int[1422];
+132: 		int[] sizes = new int[1422];
+133: 		FindIterable<Document> findIterables = collections.find();
+134: 		MongoCursor<Document> mongoCursors = findIterables.iterator(); 
+135: 		int is = 0;
+136: 		while(mongoCursors.hasNext()){ 
+137: 		Document documents = mongoCursors.next();
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [134] 行发生了一个错误
+Document cannot be resolved to a type
+131: 		int[] ys = new int[1422];
+132: 		int[] sizes = new int[1422];
+133: 		FindIterable<Document> findIterables = collections.find();
+134: 		MongoCursor<Document> mongoCursors = findIterables.iterator(); 
+135: 		int is = 0;
+136: 		while(mongoCursors.hasNext()){ 
+137: 		Document documents = mongoCursors.next();
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [137] 行发生了一个错误
+Document cannot be resolved to a type
+134: 		MongoCursor<Document> mongoCursors = findIterables.iterator(); 
+135: 		int is = 0;
+136: 		while(mongoCursors.hasNext()){ 
+137: 		Document documents = mongoCursors.next();
+138: 		String num1s = documents.get("0").toString();
+139: 		int n1s = Integer.parseInt(num1s);
+140: 		xs[is] = n1s;	
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [149] 行发生了一个错误
+FindIterable cannot be resolved to a type
+146: 		sizes[is] = n3s;
+147: 		is++;
+148: 		}
+149: 		FindIterable<Document> findIterable2s = collection2s.find();
+150: 		MongoCursor<Document> mongoCursor2s = findIterable2s.iterator();
+151: 		String[] wordss = new String[1422];
+152: 		int ls = 0 ;
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [149] 行发生了一个错误
+Document cannot be resolved to a type
+146: 		sizes[is] = n3s;
+147: 		is++;
+148: 		}
+149: 		FindIterable<Document> findIterable2s = collection2s.find();
+150: 		MongoCursor<Document> mongoCursor2s = findIterable2s.iterator();
+151: 		String[] wordss = new String[1422];
+152: 		int ls = 0 ;
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [150] 行发生了一个错误
+MongoCursor cannot be resolved to a type
+147: 		is++;
+148: 		}
+149: 		FindIterable<Document> findIterable2s = collection2s.find();
+150: 		MongoCursor<Document> mongoCursor2s = findIterable2s.iterator();
+151: 		String[] wordss = new String[1422];
+152: 		int ls = 0 ;
+153: 		while(mongoCursor2s.hasNext()){ 
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [150] 行发生了一个错误
+Document cannot be resolved to a type
+147: 		is++;
+148: 		}
+149: 		FindIterable<Document> findIterable2s = collection2s.find();
+150: 		MongoCursor<Document> mongoCursor2s = findIterable2s.iterator();
+151: 		String[] wordss = new String[1422];
+152: 		int ls = 0 ;
+153: 		while(mongoCursor2s.hasNext()){ 
+
+
+JSP文件：[/sqltest/tree_ciyun.jsp] 的第 [154] 行发生了一个错误
+Document cannot be resolved to a type
+151: 		String[] wordss = new String[1422];
+152: 		int ls = 0 ;
+153: 		while(mongoCursor2s.hasNext()){ 
+154: 			Document document2s = mongoCursor2s.next();
+155: 			String wordx = document2s.get("0").toString();
+156: 			wordss[ls] = wordx;
+157: 			ls++;
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:498)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:777)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:355)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:866)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1708)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:832)
+13-Jun-2022 18:45:14.341 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+13-Jun-2022 18:45:14.341 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+13-Jun-2022 18:45:14.356 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@1bdbf9be')
+13-Jun-2022 22:45:06.993 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+13-Jun-2022 22:45:06.994 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+13-Jun-2022 22:45:07.007 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@2f19f2aa')

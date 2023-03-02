@@ -1,0 +1,580 @@
+08-Jun-2022 08:48:03.962 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+08-Jun-2022 08:48:03.963 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+08-Jun-2022 08:48:03.972 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@2fb69ff6')
+08-Jun-2022 15:34:44.521 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+08-Jun-2022 15:34:44.522 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+08-Jun-2022 15:34:44.537 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@5eefa415')
+08-Jun-2022 15:58:35.827 严重 [http-nio-8080-exec-8] org.apache.catalina.core.StandardWrapperValve.invoke 在路径为/htmlfile的上下文中，Servlet[jsp]的Servlet.service（）引发了具有根本原因的异常无法为JSP编译类: 
+
+JSP文件：[/final/index.jsp] 的第 [76] 行发生了一个错误
+String literal is not properly closed by a double-quote
+73:         String userName="root";
+74:         String userPasswd="jzljzl233";
+75:         String dbName="english";
+76:         String tableName="countrydata"";
+77:         //String tableName="map_xhzd";
+78:         String url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+userPasswd;
+79:         Class.forName(driverName).newInstance();
+
+
+Stacktrace:
+	org.apache.jasper.JasperException: 无法为JSP编译类: 
+
+JSP文件：[/final/index.jsp] 的第 [76] 行发生了一个错误
+String literal is not properly closed by a double-quote
+73:         String userName="root";
+74:         String userPasswd="jzljzl233";
+75:         String dbName="english";
+76:         String tableName="countrydata"";
+77:         //String tableName="map_xhzd";
+78:         String url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+userPasswd;
+79:         Class.forName(driverName).newInstance();
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:498)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:777)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:355)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:866)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1708)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:832)
+08-Jun-2022 15:59:01.734 严重 [http-nio-8080-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke 在路径为/htmlfile的上下文中，Servlet[jsp]的Servlet.service（）引发了具有根本原因的异常无法为JSP编译类: 
+
+JSP文件：[/final/index.jsp] 的第 [95] 行发生了一个错误
+The method getInteger(int) is undefined for the type ResultSet
+92:         while(rs.next()){
+93:             shortName[count]='"'+rs.getString(2)+'"';
+94:             name[count]='"'+rs.getString(3)+'"';
+95:             value[count]='"'+rs.getInteger(4)+'"';
+96:             picSrc[count]='"'+rs.getString(5)+'"';
+97:             count++;
+98:         }
+
+
+Stacktrace:
+	org.apache.jasper.JasperException: 无法为JSP编译类: 
+
+JSP文件：[/final/index.jsp] 的第 [95] 行发生了一个错误
+The method getInteger(int) is undefined for the type ResultSet
+92:         while(rs.next()){
+93:             shortName[count]='"'+rs.getString(2)+'"';
+94:             name[count]='"'+rs.getString(3)+'"';
+95:             value[count]='"'+rs.getInteger(4)+'"';
+96:             picSrc[count]='"'+rs.getString(5)+'"';
+97:             count++;
+98:         }
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:498)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:777)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:355)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:866)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1708)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:832)
+08-Jun-2022 15:59:16.813 严重 [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke 在路径为/htmlfile的上下文中，Servlet[jsp]的Servlet.service（）引发了具有根本原因的异常无法为JSP编译类: 
+
+JSP文件：[/final/index.jsp] 的第 [95] 行发生了一个错误
+Type mismatch: cannot convert from String to int
+92:         while(rs.next()){
+93:             shortName[count]='"'+rs.getString(2)+'"';
+94:             name[count]='"'+rs.getString(3)+'"';
+95:             value[count]='"'+rs.getString(4)+'"';
+96:             picSrc[count]='"'+rs.getString(5)+'"';
+97:             count++;
+98:         }
+
+
+Stacktrace:
+	org.apache.jasper.JasperException: 无法为JSP编译类: 
+
+JSP文件：[/final/index.jsp] 的第 [95] 行发生了一个错误
+Type mismatch: cannot convert from String to int
+92:         while(rs.next()){
+93:             shortName[count]='"'+rs.getString(2)+'"';
+94:             name[count]='"'+rs.getString(3)+'"';
+95:             value[count]='"'+rs.getString(4)+'"';
+96:             picSrc[count]='"'+rs.getString(5)+'"';
+97:             count++;
+98:         }
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:498)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:777)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:355)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:866)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1708)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:832)
+08-Jun-2022 15:59:46.196 严重 [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke 在路径为/htmlfile的上下文中，Servlet[jsp]的Servlet.service（）引发了具有根本原因的异常无法为JSP编译类: 
+
+JSP文件：[/final/index.jsp] 的第 [95] 行发生了一个错误
+Type mismatch: cannot convert from String to int
+92:         while(rs.next()){
+93:             shortName[count]='"'+rs.getString(2)+'"';
+94:             name[count]='"'+rs.getString(3)+'"';
+95:             value[count]='"'+rs.getString(4)+'"';
+96:             picSrc[count]='"'+rs.getString(5)+'"';
+97:             count++;
+98:         }
+
+
+Stacktrace:
+	org.apache.jasper.JasperException: 无法为JSP编译类: 
+
+JSP文件：[/final/index.jsp] 的第 [95] 行发生了一个错误
+Type mismatch: cannot convert from String to int
+92:         while(rs.next()){
+93:             shortName[count]='"'+rs.getString(2)+'"';
+94:             name[count]='"'+rs.getString(3)+'"';
+95:             value[count]='"'+rs.getString(4)+'"';
+96:             picSrc[count]='"'+rs.getString(5)+'"';
+97:             count++;
+98:         }
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:498)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:777)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:355)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:866)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1708)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:832)
+08-Jun-2022 16:15:40.388 严重 [http-nio-8080-exec-10] org.apache.catalina.core.StandardWrapperValve.invoke 在路径为/htmlfile的上下文中，Servlet[jsp]的Servlet.service（）引发了具有根本原因的异常无法为JSP编译类: 
+
+JSP文件：[/final/index.jsp] 的第 [105] 行发生了一个错误
+Duplicate local variable driverName
+102:     %>
+103: 
+104:     <%
+105:         String driverName="com.mysql.jdbc.Driver";
+106:         String userName="root";
+107:         String userPasswd="jzljzl233";
+108:         String dbName="english";
+
+
+JSP文件：[/final/index.jsp] 的第 [106] 行发生了一个错误
+Duplicate local variable userName
+103: 
+104:     <%
+105:         String driverName="com.mysql.jdbc.Driver";
+106:         String userName="root";
+107:         String userPasswd="jzljzl233";
+108:         String dbName="english";
+109:         String tableName="organizationdata";
+
+
+JSP文件：[/final/index.jsp] 的第 [107] 行发生了一个错误
+Duplicate local variable userPasswd
+104:     <%
+105:         String driverName="com.mysql.jdbc.Driver";
+106:         String userName="root";
+107:         String userPasswd="jzljzl233";
+108:         String dbName="english";
+109:         String tableName="organizationdata";
+110:         String url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+userPasswd;
+
+
+JSP文件：[/final/index.jsp] 的第 [108] 行发生了一个错误
+Duplicate local variable dbName
+105:         String driverName="com.mysql.jdbc.Driver";
+106:         String userName="root";
+107:         String userPasswd="jzljzl233";
+108:         String dbName="english";
+109:         String tableName="organizationdata";
+110:         String url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+userPasswd;
+111:         Class.forName(driverName).newInstance();
+
+
+JSP文件：[/final/index.jsp] 的第 [109] 行发生了一个错误
+Duplicate local variable tableName
+106:         String userName="root";
+107:         String userPasswd="jzljzl233";
+108:         String dbName="english";
+109:         String tableName="organizationdata";
+110:         String url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+userPasswd;
+111:         Class.forName(driverName).newInstance();
+112:         Connection connection=DriverManager.getConnection(url);
+
+
+JSP文件：[/final/index.jsp] 的第 [110] 行发生了一个错误
+Duplicate local variable url
+107:         String userPasswd="jzljzl233";
+108:         String dbName="english";
+109:         String tableName="organizationdata";
+110:         String url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+userPasswd;
+111:         Class.forName(driverName).newInstance();
+112:         Connection connection=DriverManager.getConnection(url);
+113:         Statement statement=connection.createStatement();
+
+
+JSP文件：[/final/index.jsp] 的第 [112] 行发生了一个错误
+Duplicate local variable connection
+109:         String tableName="organizationdata";
+110:         String url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+userPasswd;
+111:         Class.forName(driverName).newInstance();
+112:         Connection connection=DriverManager.getConnection(url);
+113:         Statement statement=connection.createStatement();
+114: 
+115:         String sql="Select * from "+tableName;
+
+
+JSP文件：[/final/index.jsp] 的第 [113] 行发生了一个错误
+Duplicate local variable statement
+110:         String url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+userPasswd;
+111:         Class.forName(driverName).newInstance();
+112:         Connection connection=DriverManager.getConnection(url);
+113:         Statement statement=connection.createStatement();
+114: 
+115:         String sql="Select * from "+tableName;
+116:         ResultSet rs=statement.executeQuery(sql);
+
+
+JSP文件：[/final/index.jsp] 的第 [115] 行发生了一个错误
+Duplicate local variable sql
+112:         Connection connection=DriverManager.getConnection(url);
+113:         Statement statement=connection.createStatement();
+114: 
+115:         String sql="Select * from "+tableName;
+116:         ResultSet rs=statement.executeQuery(sql);
+117: 
+118:         String[] name2=new String[10];
+
+
+JSP文件：[/final/index.jsp] 的第 [116] 行发生了一个错误
+Duplicate local variable rs
+113:         Statement statement=connection.createStatement();
+114: 
+115:         String sql="Select * from "+tableName;
+116:         ResultSet rs=statement.executeQuery(sql);
+117: 
+118:         String[] name2=new String[10];
+119:         String[] value2=new String[10];
+
+
+JSP文件：[/final/index.jsp] 的第 [122] 行发生了一个错误
+Duplicate local variable count
+119:         String[] value2=new String[10];
+120:         String[] picSrc2=new String[10];
+121: 
+122:         int count=0;
+123:         while(count<10){
+124:             name2[count]='"'+rs.getString(2)+'"';
+125:             value2[count]='"'+rs.getString(3)+'"';
+
+
+Stacktrace:
+	org.apache.jasper.JasperException: 无法为JSP编译类: 
+
+JSP文件：[/final/index.jsp] 的第 [105] 行发生了一个错误
+Duplicate local variable driverName
+102:     %>
+103: 
+104:     <%
+105:         String driverName="com.mysql.jdbc.Driver";
+106:         String userName="root";
+107:         String userPasswd="jzljzl233";
+108:         String dbName="english";
+
+
+JSP文件：[/final/index.jsp] 的第 [106] 行发生了一个错误
+Duplicate local variable userName
+103: 
+104:     <%
+105:         String driverName="com.mysql.jdbc.Driver";
+106:         String userName="root";
+107:         String userPasswd="jzljzl233";
+108:         String dbName="english";
+109:         String tableName="organizationdata";
+
+
+JSP文件：[/final/index.jsp] 的第 [107] 行发生了一个错误
+Duplicate local variable userPasswd
+104:     <%
+105:         String driverName="com.mysql.jdbc.Driver";
+106:         String userName="root";
+107:         String userPasswd="jzljzl233";
+108:         String dbName="english";
+109:         String tableName="organizationdata";
+110:         String url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+userPasswd;
+
+
+JSP文件：[/final/index.jsp] 的第 [108] 行发生了一个错误
+Duplicate local variable dbName
+105:         String driverName="com.mysql.jdbc.Driver";
+106:         String userName="root";
+107:         String userPasswd="jzljzl233";
+108:         String dbName="english";
+109:         String tableName="organizationdata";
+110:         String url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+userPasswd;
+111:         Class.forName(driverName).newInstance();
+
+
+JSP文件：[/final/index.jsp] 的第 [109] 行发生了一个错误
+Duplicate local variable tableName
+106:         String userName="root";
+107:         String userPasswd="jzljzl233";
+108:         String dbName="english";
+109:         String tableName="organizationdata";
+110:         String url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+userPasswd;
+111:         Class.forName(driverName).newInstance();
+112:         Connection connection=DriverManager.getConnection(url);
+
+
+JSP文件：[/final/index.jsp] 的第 [110] 行发生了一个错误
+Duplicate local variable url
+107:         String userPasswd="jzljzl233";
+108:         String dbName="english";
+109:         String tableName="organizationdata";
+110:         String url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+userPasswd;
+111:         Class.forName(driverName).newInstance();
+112:         Connection connection=DriverManager.getConnection(url);
+113:         Statement statement=connection.createStatement();
+
+
+JSP文件：[/final/index.jsp] 的第 [112] 行发生了一个错误
+Duplicate local variable connection
+109:         String tableName="organizationdata";
+110:         String url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+userPasswd;
+111:         Class.forName(driverName).newInstance();
+112:         Connection connection=DriverManager.getConnection(url);
+113:         Statement statement=connection.createStatement();
+114: 
+115:         String sql="Select * from "+tableName;
+
+
+JSP文件：[/final/index.jsp] 的第 [113] 行发生了一个错误
+Duplicate local variable statement
+110:         String url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+userPasswd;
+111:         Class.forName(driverName).newInstance();
+112:         Connection connection=DriverManager.getConnection(url);
+113:         Statement statement=connection.createStatement();
+114: 
+115:         String sql="Select * from "+tableName;
+116:         ResultSet rs=statement.executeQuery(sql);
+
+
+JSP文件：[/final/index.jsp] 的第 [115] 行发生了一个错误
+Duplicate local variable sql
+112:         Connection connection=DriverManager.getConnection(url);
+113:         Statement statement=connection.createStatement();
+114: 
+115:         String sql="Select * from "+tableName;
+116:         ResultSet rs=statement.executeQuery(sql);
+117: 
+118:         String[] name2=new String[10];
+
+
+JSP文件：[/final/index.jsp] 的第 [116] 行发生了一个错误
+Duplicate local variable rs
+113:         Statement statement=connection.createStatement();
+114: 
+115:         String sql="Select * from "+tableName;
+116:         ResultSet rs=statement.executeQuery(sql);
+117: 
+118:         String[] name2=new String[10];
+119:         String[] value2=new String[10];
+
+
+JSP文件：[/final/index.jsp] 的第 [122] 行发生了一个错误
+Duplicate local variable count
+119:         String[] value2=new String[10];
+120:         String[] picSrc2=new String[10];
+121: 
+122:         int count=0;
+123:         while(count<10){
+124:             name2[count]='"'+rs.getString(2)+'"';
+125:             value2[count]='"'+rs.getString(3)+'"';
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:213)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:498)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:397)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:367)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:777)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:355)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:866)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1708)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:832)
+08-Jun-2022 16:17:36.500 严重 [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke 在路径为/htmlfile的上下文中，Servlet[jsp]的Servlet.service（）引发了具有根本原因的异常在 [124] 行处理 [/final/index.jsp] 时发生异常
+
+121: 
+122:         count=0;
+123:         while(count<10){
+124:             name2[count]='"'+rs.getString(2)+'"';
+125:             value2[count]='"'+rs.getString(3)+'"';
+126:             picSrc2[count]='"'+rs.getString(4)+'"';
+127:             count++;
+
+
+Stacktrace:
+	java.sql.SQLException: Before start of result set
+		at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1074)
+		at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:988)
+		at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:974)
+		at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:919)
+		at com.mysql.jdbc.ResultSetImpl.checkRowPos(ResultSetImpl.java:855)
+		at com.mysql.jdbc.ResultSetImpl.getStringInternal(ResultSetImpl.java:5773)
+		at com.mysql.jdbc.ResultSetImpl.getString(ResultSetImpl.java:5693)
+		at org.apache.jsp.final_.index_jsp._jspService(index_jsp.java:246)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:777)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:466)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:777)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:355)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:866)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1708)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.base/java.lang.Thread.run(Thread.java:832)

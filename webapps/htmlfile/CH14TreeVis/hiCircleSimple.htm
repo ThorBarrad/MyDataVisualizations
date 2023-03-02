@@ -1,0 +1,59 @@
+<html>
+<head>
+    	<meta charset="utf-8">
+</head>
+<body>
+<script src="../d3.v7.js"></script>
+<script>
+		    var width=(window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth)*0.96;
+		    var height=(window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight)*0.9;
+            var color = d3.schemeCategory10;
+            var svg = d3.select("body")			//选择<body>
+					.append("svg")			//在<body>中添加<svg>
+					.attr("width", width)	//设定<svg>的宽度属性
+					.attr("height", height*2);//设定<svg>的高度属性
+
+            radius = width /2
+
+            //var tree= d3.cluster().size([2*Math.PI, radius - 300]);
+			//var tree= d3.tree().size([2*Math.PI, radius - 300]);
+			var tree= d3.tree().size([width, height*2]);
+						 
+            d3.json("d3v3tree.json").then(function(data) {
+                console.log(data);
+                var root=tree(d3.hierarchy(data));   //在极坐标系里计算了各个的位置信息（d.x为角度，d.y为半径）
+                console.log(root);
+                links=root.links();            //以Flare.json为例,有251条边
+                console.log(links);
+                nodes=root.descendants()       //以Flare.json为例,有252个节点
+                console.log(nodes);
+            var gc=svg.append("g")
+			          .attr("transform", "translate(" + (width/6) + "," + (height/2) + ")");			
+			var lines=gc.selectAll("path")
+                        .data(links)
+                        .join("path")
+						.attr("fill","none")
+						.attr("stroke","#00f")
+						.attr("stroke-width","0.5")
+						.attr("d", d3.linkVertical()              //d3.linkHorizontal()
+                           .x(d => d.y)
+                           .y(d => d.x));
+
+
+                       /* .attr("d", d3.linkRadial()
+                                     .angle(d => d.x)
+                                     .radius(d => d.y));*/
+
+			var circles = gc.selectAll("circle")
+							.data(nodes)
+							.enter()
+							.append("circle")
+							.attr("r",d=>d.height*2+2)
+							.style("fill",d=>color[d.height%10])
+							.attr("transform", function(d) { return "rotate(0) translate(" + d.y + "," + d.x + ")"; })
+						//	.attr("transform", d =>`rotate(${d.x*180/Math.PI-90}) translate(${d.y},0)`);
+                
+})
+</script>
+</body>
+</html>

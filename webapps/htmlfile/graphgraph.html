@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <head>
+        <title>图可视化</title>
+    </head>
+    <body>
+        <h1 style="text-align: left;">
+            <a href="https://www.aminer.cn/ai2000/play">词云图plus2.0</a>
+        </h1>
+        <input type="file" accept="image/*"/>
+
+        <center>
+            <!-- <canvas id="myCanvas" style="border:1px solid #c3c3c3;"></canvas> -->
+            <canvas id="myCanvas" style="position: absolute;visibility: hidden;"></canvas>
+
+            <script src="https://www.lactame.com/lib/ml/4.0.0/ml.min.js" charset="utf-8"></script> 
+            <script src="d3.min.js"></script>
+            <script src="d3.layout.cloud3.js"></script>
+            <script type="text/javascript">
+                var data = [
+                    { text: "Machine learning", count: 13 },{ text: "Reinforcement learning", count: 13 },{ text: "Artificial intelligence", count: 13 },
+                    { text: "Planning", count: 13 },{ text: "Optimization", count: 13 },{ text: "Heuristic search", count: 13 },
+                    { text: "Natural language processing", count: 13 },{ text: "Answer set programming", count: 13 },{ text: "Data mining", count: 13 },
+                    { text: "Game theory", count: 13 },{ text: "Computational complexity", count: 13 },{ text: "Proposed algorithm", count: 13 },
+                    { text: "Transfer learning", count: 13 },{ text: "Training data", count: 13 },{ text: "Multi agent systems", count: 13 },
+                    { text: "Matrix factorization", count: 13 },{ text: "Social choice", count: 13 },{ text: "Probabilistic model", count: 13 },
+                    { text: "Recommender system", count: 13 },{ text: "Active learning", count: 13 },{ text: "Graphical models", count: 13 },
+                    { text: "Description logics", count: 13 },{ text: "Conjunctive query", count: 13 },{ text: "Uncertainty", count: 13 },
+                    { text: "New approach", count: 13 },{ text: "Optimization problem", count: 13 },{ text: "Smart grid", count: 13 },
+                    { text: "Nlp", count: 13 },{ text: "Big data", count: 13 },{ text: "Social media", count: 13 },
+                    { text: "Computer science", count: 13 },{ text: "Time series", count: 13 },{ text: "Human robot interaction", count: 13 },
+                    { text: "Logic programming", count: 13 },{ text: "Social network", count: 13 },{ text: "Target domain", count: 13 },
+                    { text: "Knowledge representation", count: 13 },{ text: "Real-world data", count: 13 },{ text: "Epistemic logic", count: 13 },
+                    { text: "Graphical model", count: 13 },{ text: "Classification", count: 13 },{ text: "Energy", count: 13 },
+                    { text: "Self-interested agent", count: 13 },{ text: "Reasoning", count: 13 },{ text: "Robotics", count: 13 },
+                    { text: "Fair division", count: 13 },{ text: "Domain knowledge", count: 13 },{ text: "Voting", count: 13 },
+                    { text: "Knowledge base", count: 13 },{ text: "Experimentation", count: 13 },{ text: "Existential rule", count: 13 },
+                    { text: "Query answering", count: 13 },{ text: "Knowledge representation and reasoning", count: 13 },{ text: "New method", count: 13 },
+                    { text: "Empirical evaluation", count: 13 },{ text: "Economics", count: 13 },{ text: "Logic program", count: 13 },
+                    { text: "Unlabeled data", count: 13 },{ text: "Data analysis", count: 13 },{ text: "Different task", count: 13 },
+                    { text: "Multitask learning", count: 13 },{ text: "Markov decision process", count: 13 },{ text: "Prediction", count: 13 },
+                    { text: "Autonomous agent", count: 13 },{ text: "Small number", count: 13 },{ text: "Crowdsourcing", count: 13 },
+                    { text: "Bayesian reinforcement learning", count: 13 },{ text: "Test data", count: 13 },{ text: "Memory", count: 13 },
+                    { text: "Different domain", count: 13 },{ text: "Algorithms", count: 13 },{ text: "Feature selection", count: 13 },
+                    { text: "Cross-domain sentiment classification", count: 13 },{ text: "Gaussian process", count: 13 },{ text: "Training set", count: 13 },
+                    { text: "New model", count: 13 },{ text: "Small set", count: 13 },{ text: "General framework", count: 13 },
+                ];
+                            
+                var screenwidth=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;
+                var screenheight=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight;
+                screenwidth=screenwidth-50
+                var svg=d3.select("body")
+                            .append("svg")
+                            .attr("width",screenwidth)
+                            .attr("height",screenheight)
+                let fill = d3.schemeCategory10;
+                let size = d3.scaleLinear().range([0, 13]).domain([0, d3.max(data, d => d.count)]);
+                let word_cloud_data = data.map(function(d){
+                    // return { text: d.text, size: 2 + size(d.count) * 1 };
+                    return { text: d.text, size: Math.floor(Math.random()*25) };
+                });
+
+
+				var c=document.getElementById("myCanvas");
+				var cxt=c.getContext("2d");
+                const inputFile = document.querySelector("input[type=file]");
+
+                inputFile.onchange = (event) => {
+
+                    const files = event.target.files;
+
+                    if (files.length > 0) {
+                        const file = files[0];
+                        
+                        var img = new Image();
+                        img.src = URL.createObjectURL(file);
+                        img.onload = function(event) {
+                            // 图像加载
+                            URL.revokeObjectURL(this.src);
+                            c.width = img.width;
+                            c.height = img.height;
+                            cxt.drawImage(img, 0, 0);
+
+                            // 图像二值化
+                            var imageData = cxt.getImageData(0,0,c.width, c.height);
+                            var data = imageData.data;
+
+                           
+
+                            // process into binary frame
+                            var maxwidth=1;
+                            while(maxwidth<img.width){
+                                maxwidth=maxwidth*2
+                            }
+                            var maxheight=1;
+                            while(maxheight<img.height){
+                                maxheight=maxheight*2
+                            }
+                            var newframe=[]
+                            
+                            for(var i=0;i<maxheight;i++){
+                                if(i<img.height){
+                                    for(var j=0;j<maxwidth;j++){
+                                        if(j<img.width){
+                                            var red=data[(i*img.width+j)*4]
+                                            var green=data[(i*img.width+j)*4+1]
+                                            var blue=data[(i*img.width+j)*4+2]
+                                            // console.log(red,green,blue)
+                                            var gray=Math.floor(red*0.3+green*0.59+blue*0.11);
+                                            if(gray<250){
+                                                newframe.push(0)
+                                            }
+                                            else{
+                                                newframe.push(1)
+                                            }
+                                        }
+                                        else{
+                                            newframe.push(1)
+                                        }
+                                    }
+                                }
+                                else{
+                                    for(var j=0;j<maxwidth;j++){
+                                        newframe.push(1)
+                                    }
+                                }
+                            }
+                            // console.log(newframe)
+                            var myframe=[]
+                            var pixcount=0
+                            var value=0
+                            var zhengfu=1
+                            for(var k=0;k<newframe.length;k++){
+                                if(newframe[k]==0){     // append 0 "black" display value=0
+                                    if(pixcount==0){
+                                        zhengfu=1
+                                    }
+                                    else{
+                                        value=value*2
+                                    }
+                                    pixcount+=1
+                                    if(pixcount==32){
+                                        if(zhengfu==-1){
+                                            value=-(value+1)
+                                        }
+                                        myframe.push(value)
+                                        pixcount=0
+                                        value=0
+                                        zhengfu=1
+                                    }
+                                }
+                                else{   // append 1 "white" no-display value=1
+                                    if(pixcount==0){
+                                        zhengfu=-1
+                                    }
+                                    else{
+                                        value=value*2+1
+                                    }
+                                    pixcount+=1
+                                    if(pixcount==32){
+                                        if(zhengfu==-1){
+                                            value=-(value+1)
+                                        }
+                                        myframe.push(value)
+                                        pixcount=0
+                                        value=0
+                                        zhengfu=1
+                                    }
+                                }
+                            }
+                            console.log(myframe)
+                            // end process
+
+                            // //  黑白图片显示
+                            // for (var i = 0; i < data.length; i += 4){
+                            //     var gray=Math.floor(imageData.data[i]*0.3+imageData.data[i+1]*0.59+imageData.data[i+2]*0.11);
+                            //     if(gray<128){   
+							//         data[i]     =0; // red
+							//         data[i + 1] =0; // green
+                            //         data[i + 2] =0; // blue
+						    //     }
+						    //     else{
+							//         data[i]     =255; // red
+							//         data[i + 1] =255; // green
+                            //         data[i + 2] =255; // blue
+						    //     }
+                            // }
+                            // cxt.putImageData(imageData,0,0);
+
+
+
+
+                            // // 色彩聚类
+                            // var DM=new Array(c.height);
+				            // var datargb=new Array(c.height*c.width);
+				            // for(var i=0;i<c.height;i++){
+						    //     DM[i]=new Array(c.width);
+						    //     for(var j=0;j<c.width;j++){
+							//         DM[i][j]=new Array(4);
+							//         DM[i][j][0]=data[(i*(c.width)+j)*4];
+							//         DM[i][j][1]=data[(i*(c.width)+j)*4+1];
+							//         DM[i][j][2]=data[(i*(c.width)+j)*4+2];
+							//         DM[i][j][3]=data[(i*(c.width)+j)*4+3];
+                            
+							//         datargb[i*c.width+j]=new Array(3);
+						    //         datargb[i*c.width+j][0]=data[(i*(c.width)+j)*4];
+							//         datargb[i*c.width+j][1]=data[(i*(c.width)+j)*4+1];
+							//         datargb[i*c.width+j][2]=data[(i*(c.width)+j)*4+2];
+							//         //datargb[i*c.height+j][3]=idata[(i*(c.width)+j)*4+3];						
+						    //     }
+				            // }
+				            // var cent=new Array(7);
+				            // // console.log(datargb.length,datargb[0],datargb[500],datargb[3000]);
+				            // for(var i=0;i<7;i++){
+					        //     cent[i]=datargb[Math.floor(Math.random()*datargb.length)];
+					        //     // console.log(cent[i]);
+				            // }
+				            // var cc7 = ML.KMeans(datargb,7, {initialization: cent });
+
+
+
+                            // // 显示聚类后图片
+                            // for(var i=0;i<c.height;i++){				
+						    //     for(var j=0;j<c.width;j++){
+							//         if((i>0)&&(i<c.height-1)&&(j>0)&&(j<c.width-1)){
+							// 	        //求最短距离
+							// 	        var shortindex=0;
+							// 	        var shortsum=0;
+							// 	        for(var k=0;k<7;k++){
+							// 		        var dis1=Math.pow(DM[i][j][0]-cc7.centroids[k].centroid[0],2);
+							// 		        var dis2=Math.pow(DM[i][j][1]-cc7.centroids[k].centroid[1],2);
+							// 		        var dis3=Math.pow(DM[i][j][2]-cc7.centroids[k].centroid[2],2);
+							// 		        var dis=Math.sqrt(dis1+dis2+dis3);
+							// 		        if (k==0){
+							// 			        shortsum=dis;
+							// 			        shortindex=k;
+							// 		        }
+							// 		        else if (shortsum>dis){
+							// 			        shortsum=dis;
+							// 			        shortindex=k;
+							// 		        }
+							// 	        }
+							// 	        DM[i][j][0]=Math.floor(cc7.centroids[shortindex].centroid[0]);
+							// 	        DM[i][j][1]=Math.floor(cc7.centroids[shortindex].centroid[1]);
+							// 	        DM[i][j][2]=Math.floor(cc7.centroids[shortindex].centroid[2]);
+							//         }
+						    //     }
+					        // }
+					        // for(var i=0;i<c.height;i++){					
+						    //     for(var j=0;j<c.width;j++){					
+							//         data[(i*(c.width)+j)*4]=DM[i][j][0];
+							//         data[(i*(c.width)+j)*4+1]=DM[i][j][1];
+							//         data[(i*(c.width)+j)*4+2]=DM[i][j][2];	
+							//         data[(i*(c.width)+j)*4+3]=DM[i][j][3];						
+						    //     }
+					        // }
+					        // cxt.putImageData(imageData, 0, 0);
+
+
+
+                            // 显示词云
+                            let layout = d3.layout.cloud()
+                                .size([maxwidth, maxheight])
+                                .words(word_cloud_data)
+                                .padding(2.5)
+                                // .rotate(d => ~~(Math.random() * 2) * -90)
+                                .rotate(0)
+                                .fontSize(d => d.size)
+                                .myframe(myframe)
+                                .on("end", draw);
+
+                            layout.start();
+                            function draw(words) {
+                                d3.selectAll("g").remove()
+                                svg.append("g")
+                                    .attr("transform", "translate("+screenwidth/2+","+screenheight/2+")")
+                                    .selectAll("text")
+                                    .data(words)
+                                    .enter()
+                                    .append("text")
+                                    .style("fill", function(d, i){ 
+                                        var x_in_img=Math.floor(d.x+img.width/2)
+                                        var y_in_img=Math.floor(d.y+img.height/2)
+                                        var r=data[(y_in_img*(img.width)+x_in_img)*4]
+                                        var g=data[(y_in_img*(img.width)+x_in_img)*4+1]
+                                        var b=data[(y_in_img*(img.width)+x_in_img)*4+2]
+                                        console.log(x_in_img,y_in_img,r,g,b)
+                                        return "rgb("+r+","+g+","+b+")"
+                                    })
+                                    .style("text-anchor", "middle")
+                                    .attr("transform", d => "translate(" + [d.x, d.y] + ")")
+                                    .text(d => d.text)
+                                    .style("font-size", d => d.size + "px");
+                            }
+                        }
+                    }
+                }
+			</script>
+        </center>
+    </body>
+</html>

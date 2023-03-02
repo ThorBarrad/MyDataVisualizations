@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <head>
+        <title>19数科蒋卓良数据可视化作业2-2</title>
+    </head>
+    <body>
+        <h1>
+            19数科蒋卓良/数据可视化作业02-2/2019302120041
+        </h1>
+        <svg id="mysvg">
+
+        </svg>
+    </body>
+    <script>
+        function drawbox(bottomX,bottomY,lineLength,rotate,decayRate,iterateLeft,isright){
+
+            if(iterateLeft<0){
+                return
+            }
+            if(isright==0){
+                var leftbottomX=bottomX
+                var leftbottomY=bottomY
+
+                var lefttopX=leftbottomX+lineLength*Math.cos(rotate-Math.PI/2);
+                var lefttopY=leftbottomY+lineLength*Math.sin(rotate-Math.PI/2);
+
+                var rightbottomX=leftbottomX+lineLength*Math.cos(rotate);
+                var rightbottomY=leftbottomY+lineLength*Math.sin(rotate);
+
+                var righttopX=lefttopX+lineLength*Math.cos(rotate);
+                var righttopY=lefttopY+lineLength*Math.sin(rotate);
+            }
+            else{
+                var rightbottomX=bottomX
+                var rightbottomY=bottomY
+
+                var leftbottomX=rightbottomX-lineLength*Math.cos(rotate);
+                var leftbottomY=rightbottomY-lineLength*Math.sin(rotate);
+
+                var lefttopX=leftbottomX+lineLength*Math.cos(rotate-Math.PI/2);
+                var lefttopY=leftbottomY+lineLength*Math.sin(rotate-Math.PI/2);
+
+                var righttopX=lefttopX+lineLength*Math.cos(rotate);
+                var righttopY=lefttopY+lineLength*Math.sin(rotate);
+            }
+            
+
+            var myline1=document.createElement("line");
+            histgraph.appendChild(myline1);
+            myline1.outerHTML="<line x1="+leftbottomX+
+            " y1="+leftbottomY+
+            " x2="+lefttopX+
+            " y2="+lefttopY+
+            " stroke='rgb(0,"+(255-Math.round(lineLength*255/150))+","+Math.round(lineLength*255/150)+")' stroke-width=2></line>"
+            
+            var myline2=document.createElement("line");
+            histgraph.appendChild(myline2);
+            myline2.outerHTML="<line x1="+leftbottomX+
+            " y1="+leftbottomY+
+            " x2="+rightbottomX+
+            " y2="+rightbottomY+
+            " stroke='rgb(0,"+(255-Math.round(lineLength*255/150))+","+Math.round(lineLength*255/150)+")' stroke-width=2></line>"
+
+            var myline3=document.createElement("line");
+            histgraph.appendChild(myline3);
+            myline3.outerHTML="<line x1="+lefttopX+
+            " y1="+lefttopY+
+            " x2="+righttopX+
+            " y2="+righttopY+
+            " stroke='rgb(0,"+(255-Math.round(lineLength*255/150))+","+Math.round(lineLength*255/150)+")' stroke-width=2></line>"
+
+            var myline4=document.createElement("line");
+            histgraph.appendChild(myline4);
+            myline4.outerHTML="<line x1="+righttopX+
+            " y1="+righttopY+
+            " x2="+rightbottomX+
+            " y2="+rightbottomY+
+            " stroke='rgb(0,"+(255-Math.round(lineLength*255/150))+","+Math.round(lineLength*255/150)+")' stroke-width=2></line>"
+
+            var leftlength=lineLength*Math.cos(decayRate);
+            var rightlength=lineLength*Math.sin(decayRate);
+            
+            drawbox(lefttopX,lefttopY,leftlength,rotate-decayRate,decayRate,iterateLeft-1,0);
+            drawbox(righttopX,righttopY,rightlength,rotate+Math.PI/2-decayRate,decayRate,iterateLeft-1,1);
+        }
+
+
+        var screenwidth=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;
+        var screenheight=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight;
+        screenwidth=screenwidth-50;
+        screenheight=screenheight-130;
+
+        var histgraph=document.getElementById("mysvg");
+        histgraph.setAttribute("width",screenwidth);
+        histgraph.setAttribute("height",screenheight+20);
+
+        drawbox(screenwidth/2,screenheight*4/5,100,0,Math.PI/3,12,1);
+    </script>
+</html>

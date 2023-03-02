@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 - - [11/May/2022:22:22:00 +0800] "GET /htmlfile/wc.html HTTP/1.1" 200 5834
+0:0:0:0:0:0:0:1 - - [11/May/2022:22:22:00 +0800] "GET /htmlfile/package/d3.min.js HTTP/1.1" 200 276463
+0:0:0:0:0:0:0:1 - - [11/May/2022:22:22:00 +0800] "GET /htmlfile/package/d3.layout.cloud.js HTTP/1.1" 200 171549
+0:0:0:0:0:0:0:1 - - [11/May/2022:22:22:01 +0800] "GET /favicon.ico HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [11/May/2022:22:22:09 +0800] "GET /htmlfile/pathforce.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [11/May/2022:22:22:09 +0800] "GET /htmlfile/d3.min.js HTTP/1.1" 200 276463
+0:0:0:0:0:0:0:1 - - [11/May/2022:22:22:09 +0800] "GET /htmlfile/jquery.js HTTP/1.1" 200 89501

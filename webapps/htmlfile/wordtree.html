@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <head>
+        <title>19数科蒋卓良数据可视化作业3</title>
+    </head>
+    <body>
+        <h1>
+            19数科蒋卓良/数据可视化作业03/wordtree
+        </h1>
+        <svg id="mysvg">
+            <!-- <rect x=20 y=20 width=200 height=300 stype="fill:yellow"></rect> -->
+            <!-- <line x1=0 y1=0 x2=100 y2=100 stroke='black'></line> -->
+            <!-- <text x=200 y=200 fill="red" transform="rotate(45,200,200)">芜湖起飞</text> -->
+            <!-- <text x=200 y=200 fill='red' transform='rotate(45,200,200)' font-family='微软雅黑' fill='rgb(0,0,255)' font-size=10>芜湖起飞</text> -->
+        </svg>
+    </body>
+    <script>
+        function drawline(startX,startY,lineLength,rotate,decayRate,iterateLeft){
+            if(iterateLeft==0){
+                var apple=document.createElement("ciricle");
+                histgraph.appendChild(apple);
+                apple.outerHTML="<circle cx="+startX+
+                                " cy="+startY+
+                                " r="+2.5*Math.random()+
+                                " fill='rgb(0,"+(255-Math.round(lineLength*255/150))+","+Math.round(lineLength*255/150)+")'/>";
+                return
+            }
+            var myline=document.createElement("line");
+            histgraph.appendChild(myline);
+            var endX=startX+lineLength*Math.cos(rotate);
+            var endY=startY+lineLength*Math.sin(rotate);
+            
+            var str=poem[6-iterateLeft]
+            mytext=document.createElement("text");
+            histgraph.appendChild(mytext);
+            mytext.outerHTML="<text x="+startX+
+                            " y="+startY+
+                            " transform='rotate("+rotate*180/Math.PI+","+startX+","+startY+
+                            ")' font-family='微软雅黑' fill='rgb(0,"+(255-Math.round(lineLength*255/180))+","+Math.round(lineLength*255/180)+
+                            ")' font-size="+Math.round(lineLength/str.length)+
+                            ">"+str+"</text>";
+
+
+            decayRate=Math.max(Math.min(decayRate*(0.9+Math.random()/5),0.8),0.6);
+
+            // var alterRotate=Math.PI*(0.2+Math.random()/10);
+            // var alterRotate=Math.PI/3;
+
+            var alterRotate=Math.PI*(Math.max(Math.min(0.2+Math.random()/10,0.3),0.2));
+            
+            drawline(endX,endY,lineLength*decayRate,rotate-alterRotate,decayRate,iterateLeft-1);
+            drawline(endX,endY,lineLength*decayRate,rotate+alterRotate,decayRate,iterateLeft-1);
+        }
+
+
+        var screenwidth=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;
+        var screenheight=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight;
+        screenwidth=screenwidth-50;
+        screenheight=screenheight-130;
+
+        var histgraph=document.getElementById("mysvg");
+        histgraph.setAttribute("width",screenwidth);
+        histgraph.setAttribute("height",screenheight+20);
+
+        // var str="芜湖起飞飞飞飞"
+
+        var poem=new Array("一曲新词酒一杯","去年天气旧亭台","夕阳西下几时回","无可奈何花落去","似曾相识燕归来","小园香径独徘徊");
+
+        drawline(screenwidth/2,screenheight,180,-Math.PI/2,0.7,6);
+    </script>
+</html>

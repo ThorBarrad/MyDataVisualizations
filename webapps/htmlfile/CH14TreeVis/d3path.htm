@@ -1,0 +1,30 @@
+<meta charset = "UTF-8">
+   <head>
+      <title>D3 SVG LineRadial</title>
+   </head>
+   <style>
+      path {
+         fill: green;
+         stroke: #aaa;
+      }
+   </style>
+   <body>
+      <script src = "../d3.v7.min.js"></script>
+      <script>
+      	 var width=(window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth)*0.98;
+		 var height=(window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight)*0.9;
+         
+         var svg = d3.select("body")			//选择<body>
+					.append("svg")			//在<body>中添加<svg>
+					.attr("width", width)	//设定<svg>的宽度属性
+					.attr("height", height);//设定<svg>的高度属性	
+                    
+                    
+         var data = [[0, 20], [50, 30], [100, 50], [200, 60], [300, 90]];
+         var lineGenerator = d3.line();
+         var pathString = lineGenerator(data);
+         svg.append('path')
+            .attr('d', pathString);
+      </script>
+   </body>
+</html>

@@ -1,0 +1,5 @@
+0:0:0:0:0:0:0:1 - - [09/Jun/2022:08:56:14 +0800] "GET /htmlfile/threedgraph/index.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [09/Jun/2022:08:56:15 +0800] "GET /htmlfile/threedgraph/objSelection.js HTTP/1.1" 200 2967
+0:0:0:0:0:0:0:1 - - [09/Jun/2022:08:56:15 +0800] "GET /htmlfile/threedgraph/OrbitControls.js HTTP/1.1" 200 23071
+0:0:0:0:0:0:0:1 - - [09/Jun/2022:08:56:15 +0800] "GET /htmlfile/threedgraph/three.js HTTP/1.1" 200 1136966
+0:0:0:0:0:0:0:1 - - [09/Jun/2022:08:56:15 +0800] "GET /htmlfile/threedgraph/d3.v4.min.js HTTP/1.1" 200 221957

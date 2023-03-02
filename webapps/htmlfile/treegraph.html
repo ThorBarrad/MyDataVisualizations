@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <head>
+        <title>树图</title>
+    </head>
+    <body>
+        <h1 style="text-align: right;">
+            <a href="https://www.aminer.cn/ai2000/play">AI 2000全球最具影响力学者</a>
+        </h1>
+    </body>
+    <script src="d3.min.js"></script>
+    <script src="jquery.js"></script>
+    <script>
+        var screenwidth=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;
+        var screenheight=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight;
+        screenwidth=screenwidth-50;
+        screenheight=screenheight+300;
+                    
+        var svg=d3.select("body")
+                .append("svg")
+                .attr("width",screenwidth)
+                .attr("height",screenheight)
+
+        var color=d3.schemeCategory10
+
+        function getData(type_data){
+            var resultData;
+            $.ajax({
+                //url
+                url:'https://apiv2.aminer.cn/magic?a=__ai2000v2.Ranking___' ,
+                //参数:
+                data:'[{"action":"ai2000v2.Ranking","parameters":{"year":2021,"entity_type":"'+type_data+'","domain_ids":["5e8033d86121f6a2cf583984"]}}]',
+                //请求类型：
+                type:'POST',
+                //响应体结果：
+                dataType:'json',
+                contentType:"application/json",
+                async:false,
+                //成功回调：
+                success:function(data){
+                    // console.log(data["data"][0]["data"])
+                    resultData=data["data"][0]["data"]
+                },
+                //超时时间：
+                timeout:2000,
+                //失败回调：
+                error:function(){
+                    console.log('出错');
+                },
+                //传递头信息：
+                header:{
+                    "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36 Edg/100.0.1185.44",
+                }
+            })
+            return resultData
+        }
+        var countryData=getData("country")
+        var organizationData=getData("organization")
+        var scholarData=getData("scholar")
+
+        var treeData={"name":"AI 2000","children":new Array(),"avatar":"","id":0};
+        for(var i=0;i<countryData.length;i++){
+            treeData["children"].push({
+                "name":countryData[i]["name"]["en"],
+                "id":countryData[i]["id"],
+                "children":new Array(),
+                "avatar":countryData[i]["content"]["avatar"]
+            })
+        }
+        for(var i=0;i<organizationData.length;i++){
+            if(!organizationData[i]["country_ids"]){
+                continue
+            }
+            for(var j=0;j<treeData["children"].length;j++){
+                if(treeData["children"][j]["id"]==organizationData[i]["country_ids"][0]){
+                    treeData["children"][j]["children"].push({
+                        "name":organizationData[i]["name"]["en"],
+                        "id":organizationData[i]["id"],
+                        "children":new Array(),
+                        "avatar":organizationData[i]["content"]["avatar"]
+                    })
+                    break
+                }
+            }
+        }
+        for(var i=0;i<scholarData.length;i++){
+            if(!scholarData[i]["country_ids"]||!scholarData[i]["org_ids"]){
+                continue
+            }
+            for(var j=0;j<treeData["children"].length;j++){
+                if(treeData["children"][j]["id"]==scholarData[i]["country_ids"][0]){
+                    for(var k=0;k<treeData["children"][j]["children"].length;k++){
+                        if(treeData["children"][j]["children"][k]["id"]==scholarData[i]["org_ids"][0]){
+                            treeData["children"][j]["children"][k]["children"].push({
+                                "name":scholarData[i]["name"]["en"],
+                                "id":scholarData[i]["id"],
+                                // "children":new Array(),
+                                "avatar":scholarData[i]["content"]["person"]["avatar"]
+                            })
+                            break
+                        }
+                    }
+                    break
+                }
+            }
+        }
+
+        console.log("this is data");
+        console.log(treeData)
+
+        // var tree=d3.tree().size([screenheight,screenwidth]); 
+        // var tree=d3.tree().size([screenwidth,screenheight]); 
+        var tree=d3.cluster().size([2*Math.PI,screenheight*0.35]); 
+
+        var hi=d3.hierarchy(treeData);
+        console.log("this is hi");
+        console.log(hi);
+
+        var root=tree(hi);
+
+        links=root.links();
+        console.log("this is links");
+        console.log(links);
+
+        nodes=root.descendants();
+        console.log("this is nodes");
+        console.log(nodes);
+
+        var gc=svg.append("g")
+                // .attr("transform","translate(" + (screenwidth*0.02) + "," + (screenheight*0.01) + ")");	
+        var lines=gc.selectAll("path")
+                    .data(links)
+                    .enter()
+                    .append("path")
+                    .attr("fill","none")
+                    .attr("stroke","#00f")
+                    // .attr("d",d3.linkHorizontal().x(d=>d.y).y(d=>d.x))
+                    // .attr("d",d3.linkVertical().x(d=>d.x).y(d=>d.y))
+                    .attr("d",d3.linkRadial().angle(d => d.x).radius(d => d.y)).attr("transform","translate(" + (screenwidth*0.35) + "," + (screenheight/2) + ")")
+                    .attr("class",function(d){
+                        return "AI2000 "+d.source.data.id
+                        // return "AI2000"
+                    })
+        
+        var nodetxt=gc.selectAll("text") 
+                        .data(nodes)
+                        .join("text")
+                        .attr("x",d=>Math.cos(d.x-Math.PI/2)*d.y)
+                        .attr("y",d=>Math.sin(d.x-Math.PI/2)*d.y)
+                        // .attr("text-anchor",d=>!d.children?"start":"end")
+                        .attr("text-anchor","start")
+                        .attr("font-size","10")
+                        .attr("fill","green") 
+                        .attr("transform",function(d,i){
+                            return "translate(" + (screenwidth*0.35) + "," + (screenheight/2) + ")"+"rotate("+(d.x*180/Math.PI-90)+","+(Math.cos(d.x-Math.PI/2)*d.y)+","+(Math.sin(d.x-Math.PI/2)*d.y)+")"
+                        })
+                        // .text(d=>d.data.name)
+                        .text(d=>!d.children?d.data.name:"")
+                        .attr("class",function(d){
+                            return "AI2000 "+d.data.id
+                            // return "AI2000"
+                        })
+
+        var mynode=gc.selectAll("circle")
+                        .data(nodes)
+                        .join("circle")
+                        .attr("cx",d=>Math.cos(d.x-Math.PI/2)*d.y)
+                        .attr("cy",d=>Math.sin(d.x-Math.PI/2)*d.y)
+                        .attr("r",d=>4)
+                        .attr("fill","red")
+                        // .attr("stroke","red")
+                        .attr("transform","translate(" + (screenwidth*0.35) + "," + (screenheight/2) + ")")
+                        .attr("class",function(d){
+                            return "AI2000 "+d.data.id
+                            // return "AI2000"
+                        })
+                        .on("click",function(d,i){
+                            console.log(i.data)
+
+                            d3.select(".mypic").remove()
+                            d3.select(".myname").remove()
+                            // d3.selectAll('[id="' +"AI2000"+'"]').attr("opacity","50%")
+                            d3.selectAll(".AI2000").attr("opacity","30%")
+                            process(i.data)
+
+                            svg.append("rect")
+                                .attr("class","mypic")
+                                .attr("x",screenwidth*0.8)
+                                .attr("y",screenheight*0.3)
+                                .attr("width",100)
+                                .attr("height",100)
+                                .style('fill', function(){
+                                    if(i.data.avatar==""){
+                                        return "white"
+                                    }
+                                    var defs=svg.append("defs").attr("class","imgdefs")
+                                    var catpattern=defs.append("pattern")
+                                                        .attr("id","catpattern"+i.data.name.replaceAll(" ","").replaceAll("(","").replaceAll(")",""))
+                                                        .attr("height",1)
+                                                        .attr("width",1)
+                                    catpattern.append("image")
+                                            .attr("x", 0)
+                                            .attr("y", 0)
+                                            .attr("width",100)
+                                            .attr("height",100)
+                                            .attr("xlink:href",i.data.avatar.replaceAll(" ","%20"));
+                                    return "url(#catpattern" + i.data.name.replaceAll(" ","").replaceAll("(","").replaceAll(")","") + ")"
+                                })
+
+                            svg.append("text")
+                                .attr("class","myname")
+                                .attr("x",screenwidth*0.8+50)
+                                .attr("y",screenheight*0.3+125)
+                                .attr("text-anchor","middle")
+                                .attr("font-size","20")
+                                .attr("fill","black") 
+                                .text(i.data.name)
+                        })
+        function process(i){
+            console.log("."+i.id)
+            var str="."+i.id
+            d3.selectAll('[class="AI2000 ' +i.id+'"]').attr("opacity","100%")
+            if(i.children){
+                for(var j=0;j<i.children.length;j++){
+                    process(i.children[j])
+                }
+            }
+        }
+    </script>
+</html>

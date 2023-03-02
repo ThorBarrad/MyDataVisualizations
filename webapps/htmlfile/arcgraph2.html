@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <head>
+        <title>19数科蒋卓良数据可视化作业6</title>
+    </head>
+    <body>
+        <h1 style="text-align: right;">
+            arXiv计算机相关论文数量统计Top10
+        </h1>
+        <h2 style="text-align: right;">
+            (截至2022年03月20日)
+        </h2>
+    </body>
+    <script src="d3.min.js"></script>
+    <script>
+        
+        var screenwidth=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;
+        var screenheight=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight;
+        screenwidth=screenwidth-50;
+        screenheight=screenheight-170;
+                    
+        var svg=d3.select("body")
+                .append("svg")
+                .attr("width",screenwidth+40)
+                .attr("height",screenheight+20)
+
+
+        var data=[
+            {name:"Artificial Intelligence",value:44470,shortname:"AI"},
+            {name:"Hardware Architecture",value:2880,shortname:"AR"},
+            {name:"Computational Complexity",value:8891,shortname:"CC"},
+            {name:"Computational Engineering, Finance, and Science",value:4902,shortname:"CE"},
+            {name:"Computational Geometry",value:5613,shortname:"CG"},
+            {name:"Computation and Language",value:33597,shortname:"CL"},
+            {name:"Cryptography and Security",value:21477,shortname:"CR"},
+            {name:"Computer Vision and Pattern Recognition",value:71708,shortname:"CV"},
+            {name:"Computers and Society",value:12156,shortname:"CY"},
+            {name:"Databases",value:"6612",shortname:"DB"},
+            {name:"Distributed, Parallel, and Cluster Computing",value:15824,shortname:"DC"},
+            {name:"Digital Libraries",value:3937,shortname:"DL"},
+            {name:"Discrete Mathematics",value:10948,shortname:"DM"},
+            {name:"Data Structures and Algorithms",value:19126,shortname:"DS"},
+            {name:"Emerging Technologies",value:2785,shortname:"ET"},
+            {name:"Formal Languages and Automata Theory",value:3915,shortname:"FL"},
+            {name:"General Literature",value:168,shortname:"GL"},
+            {name:"Graphics",value:3525,shortname:"GR"},
+            {name:"Computer Science and Game Theory",value:8464,shortname:"GT"},
+            {name:"Human-Computer Interaction",value:9635,shortname:"HC"},
+            {name:"Information Retrieval",value:11167,shortname:"IR"},
+            {name:"Information Theory",value:38540,shortname:"IT"},
+            {name:"Machine Learning",value:105148,shortname:"LG"},
+            {name:"Logic in Computer Science",value:12912,shortname:"LO"},
+            {name:"Multiagent Systems",value:5069,shortname:"MA"},
+            {name:"Multimedia",value:3963,shortname:"MM"},
+            {name:"Mathematical Software",value:1838,shortname:"MS"},
+            {name:"Numerical Analysis",value:14254,shortname:"NA"},
+            {name:"Neural and Evolutionary Computing",value:10684,shortname:"NE"},
+            {name:"Networking and Internet Architecture",value:17500,shortname:"NI"},
+            {name:"Other Computer Science",value:2072,shortname:"OH"},
+            {name:"Operating Systems",value:685,shortname:"OS"},
+            {name:"Performance",value:3022,shortname:"PF"},
+            {name:"Programming Languages",value:6014,shortname:"PL"},
+            {name:"Robotics",value:17936,shortname:"RO"},
+            {name:"Symbolic Computation",value:2049,shortname:"SC"},
+            {name:"Sound",value:7820,shortname:"SD"},
+            {name:"Software Engineering",value:10748,shortname:"SE"},
+            {name:"Social and Information Networks",value:15581,shortname:"SI"},
+            {name:"Systems and Control",value:20070,shortname:"SY"}
+        ]
+
+        data=data.sort(function(m,n){
+            if(m.value>n.value){
+                return -1
+            }
+            else if(m.value<n.value){
+                return 1
+            }
+            else{
+                return 0
+            }
+        })
+
+        data=data.splice(0,10)
+
+        var total=0
+        for(var i=0;i<data.length;i++){
+            data[i].startAngle=total
+            total+=data[i].value
+            data[i].endAngle=total
+        }
+
+        var color=d3.schemeCategory10
+
+        var pie=d3.pie().value(function(d){
+            return d.value
+        })
+        var piedata=pie(data)
+
+        svg.selectAll("path")
+            .data(piedata)
+            .enter()
+            .append("path")
+            .attr("d",function(d,i){
+                var arcPath=d3.arc().innerRadius(0).outerRadius(1000*data[i].value/total)
+                return arcPath(d)
+            })
+            .attr("transform","translate("+screenwidth/3*2+","+screenheight/2+")")
+            .attr("stroke","white")
+            .attr("stroke-width","3px")
+            .attr("fill",function(d,i){
+                return color[i]
+            })
+            .attr("id",function(d,i){
+                return d.name+"chart"
+            })
+            .on("mouseover",function(d,i){
+                // d3.select(this)
+                //     .attr("opacity","50%")
+                a=piedata.indexOf(i)
+                d3.selectAll('[id="' + data[a].name+"chart"+'"]').attr("opacity","50%")
+                d3.selectAll('[id="' + data[a].shortname+'"]').style("visibility","visible")
+                d3.selectAll('[id="' + data[a].name+'"]').style("visibility","hidden")
+            })
+            .on("mouseout",function(d,i){
+                // d3.select(this)
+                //     .attr("opacity","100%")
+                a=piedata.indexOf(i)
+                d3.selectAll('[id="' + data[a].name+"chart"+'"]').attr("opacity","100%")
+                d3.selectAll('[id="' + data[a].shortname+'"]').style("visibility","hidden")
+                d3.selectAll('[id="' + data[a].name+'"]').style("visibility","visible")
+            })
+            
+
+        svg.selectAll("text")
+            .data(data)
+            .enter()
+            .append("text")
+            .text(function(d,i){
+                return d.name+":"+d.value
+            })
+            .attr("text-anchor",function(d,i){
+                if(d.endAngle<total/2){
+                    return "start"
+                }
+                else{
+                    return "end"
+                }
+            })
+            .attr("font-size",15)
+            .attr("transform",function(d,i){
+                var arcPath=d3.arc().innerRadius(0).outerRadius(1000*d.value/total)
+                return "translate("+screenwidth/3*2+","+screenheight/2+")"+
+                        "translate("+1000*d.value/total*Math.sin(Math.PI*d.startAngle/total+Math.PI*d.endAngle/total)
+                        +","+1000*d.value/total*Math.cos(Math.PI*d.startAngle/total+Math.PI*d.endAngle/total)*(-1)+")"
+            })
+            .style("visibility","hidden")
+            .attr("id",function(d,i){
+                return d.shortname
+            })
+
+        svg.selectAll("text2")
+            .data(data)
+            .enter()
+            .append("text")
+            .text(function(d,i){
+                return d.shortname
+            })
+            .attr("text-anchor",function(d,i){
+                if(d.endAngle<total/2){
+                    return "start"
+                }
+                else{
+                    return "end"
+                }
+            })
+            .attr("font-size",10)
+            .attr("transform",function(d,i){
+                var arcPath=d3.arc().innerRadius(0).outerRadius(1000*d.value/total)
+                return "translate("+screenwidth/3*2+","+screenheight/2+")"+
+                        "translate("+1100*d.value/total*Math.sin(Math.PI*d.startAngle/total+Math.PI*d.endAngle/total)
+                        +","+1100*d.value/total*Math.cos(Math.PI*d.startAngle/total+Math.PI*d.endAngle/total)*(-1)+")"
+            })
+            .style("visibility","visible")
+            .attr("id",function(d,i){
+                return d.name
+            })
+
+            screenheight=screenheight-100
+            svg.selectAll("rect")
+                .data(data)
+                .enter()
+                .append("rect")
+                .attr("x",function(d,i){
+                    return screenwidth*0.1+screenwidth*0.4/data.length*i
+                })
+                .attr("y",function(d,i){
+                    var dataheight=0.9*screenheight*d.value/data[0].value
+                    return screenheight-dataheight
+                })
+                .attr("width",function(d,i){
+                    return screenwidth*0.4*0.9/data.length
+                })
+                .attr("height",function(d,i){
+                    return 0.9*screenheight*d.value/data[0].value
+                })
+                .attr("fill",function(d,i){
+                    return color[i]
+                })
+                .attr("id",function(d,i){
+                    return d.name+"chart"
+                })
+                .on("mouseover",function(d,i){
+                    // d3.select(this)
+                    //     .attr("opacity","50%")
+                    a=data.indexOf(i)
+                    d3.selectAll('[id="' + data[a].name+"chart"+'"]').attr("opacity","50%")
+                    d3.selectAll('[id="' + data[a].shortname+'"]').style("visibility","visible")
+                    d3.selectAll('[id="' + data[a].name+'"]').style("visibility","hidden")
+                })
+                .on("mouseout",function(d,i){
+                    // d3.select(this)
+                    //     .attr("opacity","100%")
+                    a=data.indexOf(i)
+                    d3.selectAll('[id="' + data[a].name+"chart"+'"]').attr("opacity","100%")
+                    d3.selectAll('[id="' + data[a].shortname+'"]').style("visibility","hidden")
+                    d3.selectAll('[id="' + data[a].name+'"]').style("visibility","visible")
+                })
+            
+            svg.append("line")
+                .attr("x1",screenwidth*0.096)
+                .attr("y1", screenheight)  
+                .attr("x2", screenwidth*0.096)
+                .attr("y2", 0)  
+                .attr("stroke", "black")  
+                .attr("stroke-width", "2px")
+
+            svg.append("line")
+                .attr("x1",screenwidth*0.096)
+                .attr("y1", screenheight)  
+                .attr("x2", screenwidth*0.51)
+                .attr("y2", screenheight)  
+                .attr("stroke", "black")  
+                .attr("stroke-width", "2px")
+        
+            svg.selectAll("text3")
+                .data(data)
+                .enter()
+                .append("text")
+                .attr("x",function(d,i){
+                    return screenwidth*0.12+screenwidth*0.4/data.length*i
+                })
+                .attr("y",function(d,i){
+                    return screenheight*1.03
+                })
+                .text(function(d,i){
+                    return d.shortname
+                })
+                .attr("font-size",15)
+                .attr("text-anchor","middle")
+
+            svg.selectAll("text4")
+                .data(data)
+                .enter()
+                .append("text")
+                .attr("x",function(d,i){
+                    return screenwidth*0.1+screenwidth*0.4/data.length*i
+                })
+                .attr("y",function(d,i){
+                    var dataheight=0.91*screenheight*d.value/data[0].value
+                    return screenheight-dataheight
+                })
+                .text(function(d,i){
+                    return d.name+":"+d.value
+                })
+                .attr("font-size",13)
+                .attr("text-anchor","start")
+                .style("visibility","hidden")
+                .attr("id",function(d,i){
+                    return d.shortname
+                })
+            
+            description=["从结果可以看出",
+                        "机器学习是计算机领域论文数量最多的子类",
+                        "这得益于近年来深度学习的快速发展",
+                        "此外，信息论、密码学、算法等方面的文章数量也排进了前10",
+                        ]
+
+
+            svg.selectAll("text5")
+                .data(description)
+                .enter()
+                .append("text")
+                .attr("x",screenwidth*0.3)
+                .attr("y",function(d,i){
+                    return screenheight*(0.7+i)/15
+                })
+                .text(function(d){
+                    return d
+                })
+                .attr("font-size",17)
+                .attr("text-anchor","start")
+    </script>
+</html>

@@ -1,0 +1,93 @@
+<html>
+<head>
+    	<meta charset="utf-8">
+  <style>
+
+	.node circle {
+	  stroke: white;
+	  stroke-width: 1px;
+	}
+
+	.node {
+	  font: 12px sans-serif;
+	}
+
+	.link {
+	  fill: none;
+	  stroke: #ccc;
+	  stroke-width: 1px;
+	}
+
+  </style>
+</head>
+<body>
+<script src="../d3.v7.js"></script>
+<script>
+		     var width=(window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth)*0.96;
+		    var height=(window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight)*0.9;
+            var color = d3.schemeCategory10;
+            var svg = d3.select("body")			//选择<body>
+					.append("svg")			//在<body>中添加<svg>
+					.attr("width", width)	//设定<svg>的宽度属性
+					.attr("height", height);//设定<svg>的高度属性
+
+            radius = width /4
+            //var tree= d3.cluster().size([2*Math.PI, radius - 100]);
+            var tree= d3.tree().size([2*Math.PI, radius - 100]);
+            d3.json("d3v3tree.json").then(function(data) {
+                console.log(data);
+                //var root=tree(d3.hierarchy(data).sort((a, b) => d3.ascending(a.data.name, b.data.name)));
+                var root=tree(d3.hierarchy(data));   //在极坐标系里计算了各个的位置信息（d.x为角度，d.y为半径）
+                console.log(root);
+                links=root.links();            //以Flare.json为例,有251条边
+                console.log(links);
+                nodes=root.descendants()       //以Flare.json为例,有252个节点
+                console.log(nodes);
+
+                svg.append("g")
+                      .attr("fill", "none")
+                      .attr("stroke", "#555")
+                      .attr("stroke-width", 1)
+                    .selectAll("path")
+                    .data(links)
+                    .join("path")
+                    .attr("d", d3.linkRadial()
+                      .angle(d => d.x)
+                      .radius(d => d.y));
+
+                svg.append("g")
+                   .selectAll("circle")
+                   .data(nodes)
+                   .join("circle")
+                   .attr("transform", d => `
+                    rotate(${d.x * 180 / Math.PI - 90})
+                    translate(${d.y},0)
+                  `)
+                  .attr("fill",d=>color[d.depth])
+                  .attr("r", d=>(d.height*3+3));
+
+                  svg.append("g")
+				  	    .attr("font-family", "sans-serif")
+					    .attr("font-size", 10)
+					    .attr("stroke-width", 0)
+                     .selectAll("text")
+                     .data(root.descendants())
+                     .join("text")
+                     .attr("transform", d => `
+						rotate(${d.x * 180 / Math.PI - 90})
+						translate(${d.y},0)
+						rotate(${d.x >= Math.PI ? 180 : 0})
+					  `)
+                     .attr("dy", "0.31em")
+                     .attr("x", d => d.x < Math.PI === !d.children ? 6 : -6)
+                     .attr("text-anchor", d => d.x < Math.PI === !d.children ? "start" : "end")
+                     .text(d => d.data.name)
+                     .clone(true).lower()
+                     .attr("fill", d=>color[d.depth]);
+
+                  svg.selectAll("g")
+                   .attr("transform", "translate(" + (width/2) + "," + (height/2) + ")");
+            })
+</script>
+</body>
+</html>
